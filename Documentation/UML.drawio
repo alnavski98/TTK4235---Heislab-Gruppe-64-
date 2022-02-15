@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-02-15T10:17:10.669Z" agent="5.0 (X11)" etag="9vIuBx6SBwWFKeOt2ETO" version="16.5.6" type="github">
+<mxfile host="app.diagrams.net" modified="2022-02-15T10:20:27.097Z" agent="5.0 (X11)" etag="aa6hsDR-ECefhrA1YBkX" version="16.5.6" type="github">
   <diagram id="8NEq0hroGglhktnPBBMH" name="Page-1">
     <mxGraphModel dx="1158" dy="764" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -184,7 +184,7 @@
         <mxCell id="8vma9-YD2CByXny156sw-52" value="+ initQueue(void): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;fontSize=15;" parent="8vma9-YD2CByXny156sw-49" vertex="1">
           <mxGeometry y="60" width="311" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="8vma9-YD2CByXny156sw-88" value="+ getRequestsInDirection(void): int?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;fontSize=15;" parent="8vma9-YD2CByXny156sw-49" vertex="1">
+        <mxCell id="8vma9-YD2CByXny156sw-88" value="+ getPrioratisedRequest(void): int?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;fontSize=15;" parent="8vma9-YD2CByXny156sw-49" vertex="1">
           <mxGeometry y="86" width="311" height="26" as="geometry" />
         </mxCell>
         <mxCell id="ezmMmhLHtiu1pCIrmiN--9" value="+ buttonPressed(void): ButtonType, Floor" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;fontSize=15;" vertex="1" parent="8vma9-YD2CByXny156sw-49">
@@ -307,7 +307,7 @@
           <mxGeometry x="244" y="3297" width="49" height="18" as="geometry" />
         </mxCell>
         <mxCell id="ezmMmhLHtiu1pCIrmiN--25" value="RequestDatabase&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;fontSize=15;strokeColor=default;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="724" y="2419" width="311" height="138" as="geometry" />
+          <mxGeometry x="724" y="2419" width="311" height="164" as="geometry" />
         </mxCell>
         <mxCell id="ezmMmhLHtiu1pCIrmiN--26" value="- list/matrix: array" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;fontSize=15;" vertex="1" parent="ezmMmhLHtiu1pCIrmiN--25">
           <mxGeometry y="26" width="311" height="26" as="geometry" />
@@ -318,11 +318,14 @@
         <mxCell id="ezmMmhLHtiu1pCIrmiN--29" value="+ addReqeust((ButtonType, Floor, )): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;fontSize=15;" vertex="1" parent="ezmMmhLHtiu1pCIrmiN--25">
           <mxGeometry y="60" width="311" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="ezmMmhLHtiu1pCIrmiN--58" value="+ deleteReqeust((ButtonType, Floor, )): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;fontSize=15;" vertex="1" parent="ezmMmhLHtiu1pCIrmiN--25">
+        <mxCell id="ezmMmhLHtiu1pCIrmiN--61" value="+ getReqeust((ButtonType, Floor, )): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;fontSize=15;" vertex="1" parent="ezmMmhLHtiu1pCIrmiN--25">
           <mxGeometry y="86" width="311" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="ezmMmhLHtiu1pCIrmiN--30" value="+ deleteAllRequests(void): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;fontSize=15;" vertex="1" parent="ezmMmhLHtiu1pCIrmiN--25">
+        <mxCell id="ezmMmhLHtiu1pCIrmiN--58" value="+ deleteReqeust((ButtonType, Floor, )): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;fontSize=15;" vertex="1" parent="ezmMmhLHtiu1pCIrmiN--25">
           <mxGeometry y="112" width="311" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ezmMmhLHtiu1pCIrmiN--30" value="+ deleteAllRequests(void): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;fontSize=15;" vertex="1" parent="ezmMmhLHtiu1pCIrmiN--25">
+          <mxGeometry y="138" width="311" height="26" as="geometry" />
         </mxCell>
         <mxCell id="ezmMmhLHtiu1pCIrmiN--33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="8vma9-YD2CByXny156sw-49">
           <mxGeometry relative="1" as="geometry">
@@ -355,12 +358,6 @@
         </mxCell>
         <mxCell id="ezmMmhLHtiu1pCIrmiN--53" value="Priority Manager" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="78" y="3457" width="98" height="18" as="geometry" />
-        </mxCell>
-        <mxCell id="ezmMmhLHtiu1pCIrmiN--55" value="&lt;div&gt;Request&lt;span style=&quot;white-space: pre&quot;&gt;	&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="327" y="3522" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="ezmMmhLHtiu1pCIrmiN--56" value="&lt;div&gt;RequestDatabase&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="535" y="3632" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
