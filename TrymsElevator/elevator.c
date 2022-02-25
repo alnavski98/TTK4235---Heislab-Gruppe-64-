@@ -7,6 +7,7 @@ elevatorState elevatorInit(){
     elevatorState elevator;
     elevator.State = UNDEFINED;
     elevator.Floor = -1;
+    elevator.PrevFloor = -1;
     elevator.Dir = 0; //Assumes it dosen't move when we start up. 
     elevator.currentFloorRequest = -1;
     printf("Finished function \n");
@@ -15,7 +16,7 @@ elevatorState elevatorInit(){
 
 void printElevatorState(elevatorState elevator){
     printf("################################### \n");
-    printf("State = %d, Floor = %d, Direction = %d \n", elevator.State, elevator.Floor, elevator.Dir);
+    printf("State = %d, Floor = %d, Direction = %d, Previous floor = %d \n", elevator.State, elevator.Floor, elevator.Dir, elevator.PrevFloor);
     printf("################################### \n");
 }
 

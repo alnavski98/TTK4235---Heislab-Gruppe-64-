@@ -6,6 +6,7 @@
 typedef enum {
     UNDEFINED = 0,
     IDLE,
+    INBETWEEN, // Represents state when elevator is in between floors
     MOVING,
     DOOROPEN,
     OBSTRUCTION,
@@ -15,8 +16,9 @@ typedef enum {
 typedef struct {
     state State;
     int Floor;
+    int PrevFloor;
     MotorDirection Dir;
-    int currentFloorRequest;
+    int currentFloorRequest; // Represents the floor at which the request comes from
 } elevatorState;
 
 

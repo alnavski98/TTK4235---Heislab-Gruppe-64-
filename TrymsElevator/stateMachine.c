@@ -7,17 +7,26 @@
 // Lage køsystem
 
 void stateMachine(){
+    // Initializes an instance of the elevatorState to "default" start values of:
+    // - elevator.State = UNDEFINED;
+    // - elevator.Floor = -1;
+    // - elevator.Dir = 0; //Assumes it dosen't move when we start up. 
+    // - elevator.currentFloorRequest = -1;
     printf("Elevator initiating \n");
     elevatorState elevator = elevatorInit();
 
     printf("Elevator Initiated \n");
     printElevatorState(elevator);
 
+    // Initializes an instance of Request to "default" start values of:
+    // - requestDatabase.numRequest = 0;
+    // - requestDatabase.Database[b][f] = 0; // Integer value
+    // Where "b" and "f" represents a given button and floor respectively
     printf("Database initiating \n");
     Request requestDatabase = initRequestDatabase();
     printf("Database initiated \n");
 
-    int requestInDIr = -1;
+    int requestInDIr = -1; // 
 
     clock_t start;
     clock_t end;
@@ -102,6 +111,24 @@ void stateMachine(){
                         move(DIRN_DOWN);
                     }
                     printElevatorState(elevator);
+                }
+                break;
+
+            case INBETWEEN:
+                printf("In between floors");
+                elevator.PrevFloor = elevator.Floor; // Store previous floor here
+                elevator.Floor = -1;  // Not in defined/specific floor
+                // If elevator moves in the upwards direction and the new floor requested
+                // is greater than the floor it was on (PrevFloor) update the request list
+                // and move towards that floor
+                if(elevator.Dir == DIRN_UP && elevator.PrevFloor < elevator.currentFloorRequest){
+                    elevator.State = MOVING;
+                }
+                // If elevator moves in the downwards direction and the new floor requested
+                // is smaller/less than the floor it was on (PrevFloor) update the request list
+                // and move towards that floor
+                else if(elevator.Dir = DIRN_DOWN && elevator.PrevFloor > elevator.currentFloorRequest){
+                    elevator.State = MOVING;
                 }
                 break;
 
@@ -191,7 +218,7 @@ void stateMachine(){
                 requestInDIr = -1;
                 //order[0] = -1; // Delete all orders
                 // If we are on floor -> open door
-                if(elevio_floorSensor() != -1){ 
+                if(elevio_floorSensor() != -1 && (elevator.Dir == DIRN_DOWN || elevator.Dir == DIRN_UP)){ 
                     openDoor();
                 }
 
@@ -213,9 +240,11 @@ void stateMachine(){
                 // Think mabye going to undefined is not correct way to handle it. 
                 // Because we know our state; it is not undefined. So we should just have a method to handle it. 
                 // If on floor go to door open.
-                if(elevio_floorSensor() == -1){
-                    elevator.State = IDLE;
-                }else{
+                if(elevio_floorSensor() == -1 && (elevator.Dir == DIRN_UP || elevator.Dir == DIRN_DOWN)){
+                    // elevator.State = IDLE;
+                    elevator.State = INBETWEEN;
+                }
+                else{
                     elevator.State = DOOROPEN;
                     start = startTimer();
                 }
