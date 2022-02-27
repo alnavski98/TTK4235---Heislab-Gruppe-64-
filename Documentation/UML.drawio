@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-02-27T16:54:31.781Z" agent="5.0 (X11)" etag="x9sKv4l477lHmJ3oGeVw" version="16.6.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-02-27T20:36:19.636Z" agent="5.0 (X11)" etag="29jFi_5DgueCIPHpH7Tx" version="16.6.2" type="github">
   <diagram id="8NEq0hroGglhktnPBBMH" name="Page-1">
     <mxGraphModel dx="1985" dy="764" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -291,8 +291,8 @@
         <mxCell id="8vma9-YD2CByXny156sw-110" value="On floor" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="263" y="826" width="53" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="8vma9-YD2CByXny156sw-112" value="&lt;div&gt;Når vi har struct skal vi definere og det som er inni struct?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Jeg syntes klassediagrammet ikke er så ryddig.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Bør vi ha en controller som er på en måte actions som blir gjort i hver state? &lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#FF0000;" parent="1" vertex="1">
-          <mxGeometry x="622" y="1965" width="411" height="88" as="geometry" />
+        <mxCell id="8vma9-YD2CByXny156sw-112" value="&lt;div&gt;Når vi har struct skal vi definere og det som er inni struct?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Jeg syntes klassediagrammet ikke er så ryddig.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Bør vi ha en controller som er på en måte actions som blir gjort i hver state?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Skal enum være i egen klasse? &lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#FF0000;" parent="1" vertex="1">
+          <mxGeometry x="622" y="1951" width="411" height="116" as="geometry" />
         </mxCell>
         <mxCell id="ezmMmhLHtiu1pCIrmiN--38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ezmMmhLHtiu1pCIrmiN--11" target="ezmMmhLHtiu1pCIrmiN--19" edge="1">
           <mxGeometry relative="1" as="geometry" />
