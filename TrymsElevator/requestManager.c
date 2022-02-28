@@ -1,70 +1,113 @@
 #include "requestManager.h"
 
-
-Request initRequestDatabase(){
-
-    Request requestDatabase;
-    requestDatabase.numRequest = 0;
+void initRequestManager(){
+    printf("Database initiating \n");
+  
+    requestManager.numRequest = 0;
 
     for(int b = 0; b < N_BUTTONS; b++){
         for(int f = 0; f < N_FLOORS; f++){
-            requestDatabase.Database[b][f] = 0;
+            requestManager.Database[b][f] = 0;
         }
     }
-
-    return requestDatabase;
 }
 
-void updateRequests(Request* requestDatabase){
-    //printf("Updating requests");
+void printRequestManager(){
+    printf("\n");
+    printf("Request database:\n");
+    printf("+-------------------------------+\n");
+    printf("|                               |\n");
+    printf("| Floor     |   0   1   2   3   |\n");
+    printf("+-------------------------------+\n");
+    printf("| Hall up   |   %d   %d   %d   %d   |\n", requestManager.Database[0][0], requestManager.Database[0][1], requestManager.Database[0][2], requestManager.Database[0][3]);
+    printf("| Hall down |   %d   %d   %d   %d   |\n", requestManager.Database[1][0], requestManager.Database[1][1], requestManager.Database[1][2], requestManager.Database[1][3]);
+    printf("| Cab       |   %d   %d   %d   %d   |\n", requestManager.Database[2][0], requestManager.Database[2][1], requestManager.Database[2][2], requestManager.Database[2][3]);
+    printf("+-------------------------------+\n");
+    printf("\n");
+}
+
+
+void updateRequests(){
     // Check for requests.
-    for(int f = 0; f < N_FLOORS; f++){ // Loops through all the buttons if they are pressed?
+    for(int f = 0; f < N_FLOORS; f++){ 
         for(int b = 0; b < N_BUTTONS; b++){
             int btnPressed = elevio_callButton(f, b);
-            // Add the pressed button/floor to the database
             if (btnPressed){
                 elevio_buttonLamp(f, b, 1);
-                requestDatabase->Database[b][f] = 1;
+                requestManager.Database[b][f] = 1;
             }
         }
     }
 }
 
-void updateNrRequests(Request* database){
+void updateNrRequests(){
     int counter = 0;
     for(int f = 0; f < N_FLOORS; f++){ // Loops through all the buttons if they are pressed?
         for(int b = 0; b < N_BUTTONS; b++){
-            if (database->Database[b][f] == 1){  
+            if (requestManager.Database[b][f] == 1){  
                 counter += 1;
             }
         }
     }
-    database->numRequest = counter;
+    requestManager.numRequest = counter;
 }
 
-int getRequest(int elevatorFloor, int dir, int database[N_BUTTONS][N_FLOORS]){
-    if(dir == DIRN_STOP){
-        // Request on floor: 
-        for(int b = 0; b<N_BUTTONS; b++){
-            if(database[b][elevatorFloor] == 1){
-                return elevatorFloor;
-            }
-        }
 
-        // Request above or below
-        if(elevatorFloor < 2){
-            for(int f = N_FLOORS-1; f >= 0; f--){ 
-                for(int b = 0; b < N_BUTTONS; b++){
-                    if (database[b][f] == 1){
-                        return f;
+void getRequest(){
+    if(requestManager.numRequest >= 1 && elev.currentFloorRequest == -1){
+        printf("Getting new request \n");
+        if(elev.Dir == DIRN_STOP){
+            // Request on floor: 
+            for(int b = 0; b<N_BUTTONS; b++){
+                if(requestManager.Database[b][elev.Floor] == 1){
+                    elev.currentFloorRequest = elev.Floor;
+                    return;
+                }
+            }
+
+            // Request above or below
+            if(elev.Floor < 2){
+                for(int f = N_FLOORS-1; f >= 0; f--){ 
+                    for(int b = 0; b < N_BUTTONS; b++){
+                        if (requestManager.Database[b][f] == 1){
+                            elev.currentFloorRequest = f;
+                            return;
+                        }
+                    }
+                }
+            }else if(elev.Floor >= 2){
+                for(int f = 0; f < N_FLOORS; f++){ 
+                    for(int b = 0; b < N_BUTTONS; b++){
+                        if (requestManager.Database[b][f] == 1){
+                            elev.currentFloorRequest = f;
+                            return;
+                        }
                     }
                 }
             }
-        }else if(elevatorFloor >= 2){
-            for(int f = 0; f < N_FLOORS; f++){ 
+        }
+        printf("Requested floor = %d \n", elev.currentFloorRequest);
+    }
+}
+
+
+void getRequestInDIrection(){
+    if(requestManager.numRequest >= 1 && elev.requestInDIr == -1){
+        if(elev.Dir == DIRN_UP){
+            if((elev.currentFloorRequest - elev.Floor)>1){
                 for(int b = 0; b < N_BUTTONS; b++){
-                    if (database[b][f] == 1){
-                        return f;
+                    if (requestManager.Database[b][elev.Floor+1] == 1){
+                        elev.requestInDIr = elev.Floor + 1;
+                        return;
+                    }
+                }
+            }
+        }else if(elev.Dir == DIRN_DOWN){
+            if((elev.Floor-elev.currentFloorRequest) >1){
+                for(int b = 0; b < N_BUTTONS; b++){
+                    if (requestManager.Database[b][elev.Floor-1] == 1){
+                        elev.requestInDIr = elev.Floor - 1;
+                        return;
                     }
                 }
             }
@@ -73,47 +116,26 @@ int getRequest(int elevatorFloor, int dir, int database[N_BUTTONS][N_FLOORS]){
 }
 
 
-int getRequestInDIrection(int elevatorFloor, MotorDirection dir, int currentRequest, int database[N_BUTTONS][N_FLOORS]){
-
-    if(dir == DIRN_UP){
-        if((currentRequest - elevatorFloor)>1){
-            for(int b = 0; b < N_BUTTONS; b++){
-                if (database[b][elevatorFloor+1] == 1){
-                    return elevatorFloor+1;
-                }
-            }
-        }
-    }else if(dir == DIRN_DOWN){
-        if((elevatorFloor-currentRequest) >1){
-            for(int b = 0; b < N_BUTTONS; b++){
-                if (database[b][elevatorFloor-1] == 1){
-                    return elevatorFloor-1;
-                }
-            }
-        }
-    }
-    return -1;
-}
-
-
-void deleteRequest(int floor, Request* database){
+void deleteRequest(){
     for(int b = 0; b < N_BUTTONS; b++){
-        if(database->Database[b][floor] == 1){
-            elevio_buttonLamp(floor, b, 0);
-            database->Database[b][floor] = 0;
-            database->numRequest -=1;
+        if(requestManager.Database[b][elev.Floor] == 1){
+            elevio_buttonLamp(elev.Floor, b, 0);
+            requestManager.Database[b][elev.Floor] = 0;
+            requestManager.numRequest -= 1;
         }
     }
 }
 
 
 
-void deleteAllRequests(Request* database){
-    database->numRequest = 0;
+void deleteAllRequests(){
+    requestManager.numRequest = 0;
     for(int b = 0; b < N_BUTTONS; b++){
         for(int f = 0; f < N_FLOORS; f++){
-            database->Database[b][f] = 0;
+            requestManager.Database[b][f] = 0;
             elevio_buttonLamp(f, b, 0);
         }
     }
+    elev.currentFloorRequest = -1;
+    elev.requestInDIr = -1;
 }

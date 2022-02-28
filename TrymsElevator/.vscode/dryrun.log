@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/trym/Documents/TilDat/ElevatorLab/TTK4235---Heislab-Gruppe-64-/TrymsElevator'
+make: 'main' is up to date.
+make: Leaving directory '/home/trym/Documents/TilDat/ElevatorLab/TTK4235---Heislab-Gruppe-64-/TrymsElevator'
+ 

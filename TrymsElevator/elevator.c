@@ -1,22 +1,27 @@
 #include "elevator.h"
 
-elevatorState elevatorInit(){
+
+void initElevator(){
     // Initiate to UNDEFINED
+    printf("Elevator initiating \n");
+    
     elevio_init();
     printf("Connected to server \n");
-    elevatorState elevator;
-    elevator.State = UNDEFINED;
-    elevator.Floor = -1;
-    elevator.Dir = 0; //Assumes it dosen't move when we start up. 
-    elevator.currentFloorRequest = -1;
+    elev.State = UNDEFINED;
+    elev.Floor = -1;
+    elev.Dir = 0; //Assumes it dosen't move when we start up. 
+    elev.currentFloorRequest = -1;
+    elev.requestInDIr = -1;
     printf("Finished function \n");
-    return elevator;
 }
 
-void printElevatorState(elevatorState elevator){
-    printf("################################### \n");
-    printf("State = %d, Floor = %d, Direction = %d \n", elevator.State, elevator.Floor, elevator.Dir);
-    printf("################################### \n");
+void printElevatorState(){
+    printf("\n");
+    printf("Elevator status: \n");
+    printf("#+------------------------------------+\n");
+    printf("| State = %d, Floor = %d, Direction = %d |\n", elev.State, elev.Floor, elev.Dir);
+    printf("#+------------------------------------+\n");
+    printf("\n");
 }
 
 void move(MotorDirection dir){
@@ -27,16 +32,16 @@ void stopElevator(){
     elevio_motorDirection(DIRN_STOP);
 }
 
-int compareFloor(int Floor, int floorRequest){
-    if (Floor == floorRequest){
+int OnFloor(int floor){
+    if (elev.Floor == floor){
         return 1;
     }else{
         return 0;
     }
 }
 
-int requestIsAbove(int Floor, int floorRequest){
-    if(Floor < floorRequest){
+int requestIsAbove(){
+    if(elev.Floor < elev.currentFloorRequest){
         return 1;
     }else{
         return 0;
@@ -48,4 +53,28 @@ void openDoor(){
 }
 void closeDoor(){
     elevio_doorOpenLamp(0);
+}
+
+void pollFloorSensor(){
+        int Floor = elevio_floorSensor();
+        if(Floor != elev.Floor && Floor != -1){
+            elev.Floor = Floor;
+            elevio_floorIndicator(Floor);
+        }
+}
+
+void pollStopButton(){
+    if(elevio_stopButton()){
+        printf("Stop Button pressed\n");
+        stopElevator();
+        elev.Dir = DIRN_STOP;
+        elevio_stopLamp(1);
+        elev.State = STOPBUTTON;
+    }
+}
+void pollObstructionButton(){
+    if(elevio_obstruction()){
+        printf("Obstruction in Door!\n");
+        elev.State = OBSTRUCTION;
+    }
 }

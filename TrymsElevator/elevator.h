@@ -17,23 +17,26 @@ typedef struct {
     int Floor;
     MotorDirection Dir;
     int currentFloorRequest;
+    int requestInDIr;
 } elevatorState;
 
+elevatorState elev; // Global elevator instance that we use. 
 
 
-elevatorState elevatorInit(); //Initiate elevator with undefined state
-void printElevatorState(elevatorState elevator);
-//state getElevatorState();void openDoor();
+
+//elevatorState elevatorInit(); //Initiate elevator with undefined state
+void initElevator(); //Initiate elevator with undefined state
+
+//void printElevatorState(elevatorState* elevator);
+void printElevatorState();
+
 void closeDoor();
-//int getElevatorFloor();
-//void setElevatorState(state State);
-//void setElevatorFloor(int Floor);
-//void setElevatorDirection(MotorDirection dir);
-//void setNewCurrentOrder();
 void move(MotorDirection dir);
 void stopElevator();
-int compareFloor(int Floor, int floorRequest); // This function has access to both state of elevator and pulling of floor sensor.
-int requestIsAbove(int Floor, int floorRequest);
+int checkIfOnFloor(int floor); // This function has access to both state of elevator and pulling of floor sensor.
+int requestIsAbove();
 void openDoor();
 void closeDoor();
-//void getRequest();
+void pollFloorSensor();
+void pollStopButton();
+void pollObstructionButton();

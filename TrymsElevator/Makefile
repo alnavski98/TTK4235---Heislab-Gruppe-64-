@@ -3,8 +3,7 @@
 CC := gcc
 CFALGS := -O0 -g3
 
-SOURCE = main.c stateMachine.c elevator.c requestManager.c timer.c elevio.c
-
+SOURCE = main.c elevio.c timer.c elevator.c requestManager.c stateMachine.c
 
 
 .PHONY : clean

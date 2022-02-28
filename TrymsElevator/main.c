@@ -2,6 +2,6 @@
 
 
 int main(){
-  printf("Hello World \n\n");
+  printf("Elevator program starting up and running! :) \n\n");
   stateMachine();
 }
