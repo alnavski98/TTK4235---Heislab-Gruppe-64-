@@ -1,0 +1,209 @@
+\hypertarget{elevator_8h}{}\doxysection{Tryms\+Elevator/elevator.h File Reference}
+\label{elevator_8h}\index{TrymsElevator/elevator.h@{TrymsElevator/elevator.h}}
+
+
+A library containing high level elevator functionality.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}elevio.\+h\char`\"{}}\newline
+Include dependency graph for elevator.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structelevatorState}{elevator\+State}}
+\begin{DoxyCompactList}\small\item\em Data values holding state and return values from functions in order for the elevator to function properly. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90}{state}} \{ \newline
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a605159e8a4c32319fd69b5d151369d93}{U\+N\+D\+E\+F\+I\+N\+ED}} = 0, 
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90afd6a0e4343048b10646dd2976cc5ad18}{I\+D\+LE}}, 
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90aea0966fb39b76e88a5c792ecccda6d63}{I\+N\+B\+E\+T\+W\+E\+EN}}, 
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a16ebdcb23eb5337fd5bc598fa8d6035d}{M\+O\+V\+I\+NG}}, 
+\newline
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a18cd602003cbe103c9e4c31b1457bb36}{D\+O\+O\+R\+O\+P\+EN}}, 
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a51ca099f99b472823faf1cb3f46b9baa}{O\+B\+S\+T\+R\+U\+C\+T\+I\+ON}}, 
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a0fc5143611d28055a3f260b37dd86129}{S\+T\+O\+P\+B\+U\+T\+T\+ON}}
+ \}
+\begin{DoxyCompactList}\small\item\em Possible states the elevator can be in at any given time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structelevatorState}{elevator\+State}} \mbox{\hyperlink{elevator_8h_a682fd86f4f8bba9943f024493010c4e6}{elevator\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the elevators properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{elevator_8h_a3c8e78ccc471c2c9fa9d507739eda601}\label{elevator_8h_a3c8e78ccc471c2c9fa9d507739eda601}} 
+void \mbox{\hyperlink{elevator_8h_a3c8e78ccc471c2c9fa9d507739eda601}{print\+Elevator\+State}} (\mbox{\hyperlink{structelevatorState}{elevator\+State}} elevator)
+\begin{DoxyCompactList}\small\item\em Displays current \mbox{\hyperlink{structelevatorState}{elevator\+State}} values for the elevator at any time the function is called upon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{elevator_8h_ae734e9b4db204199a3c263e374b4c3fb}{close\+Door}} ()
+\begin{DoxyCompactList}\small\item\em Closes elevator door. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{elevator_8h_a6722ea651570e782d8308187943c9fc8}{move}} (\mbox{\hyperlink{elevio_8h_ab0dd3595d7049b92115a766f0ea6f7e0}{Motor\+Direction}} dir)
+\begin{DoxyCompactList}\small\item\em Moves elevator in direction specified by {\ttfamily dir}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{elevator_8h_a59880d0c1e46eabf3aba586205fb0ac8}\label{elevator_8h_a59880d0c1e46eabf3aba586205fb0ac8}} 
+void \mbox{\hyperlink{elevator_8h_a59880d0c1e46eabf3aba586205fb0ac8}{stop\+Elevator}} ()
+\begin{DoxyCompactList}\small\item\em Stops elevator. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{elevator_8h_ad4755558612ef0949de0301be195bfaf}{compare\+Floor}} (int Floor, int floor\+Request)
+\begin{DoxyCompactList}\small\item\em Checks if elevator\textquotesingle{}s current floor matches the floor requested by the client. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{elevator_8h_a72c7eadaa2a249b0092238679cd3580c}{request\+Is\+Above}} (int Floor, int floor\+Request)
+\begin{DoxyCompactList}\small\item\em Checks if the floor requested by the client is at a higher floor than the elevator\textquotesingle{}s current floor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{elevator_8h_aaae9d7fb5b7e15211adbc7d4fa2d4a3e}\label{elevator_8h_aaae9d7fb5b7e15211adbc7d4fa2d4a3e}} 
+void \mbox{\hyperlink{elevator_8h_aaae9d7fb5b7e15211adbc7d4fa2d4a3e}{open\+Door}} ()
+\begin{DoxyCompactList}\small\item\em Opens the elevator door. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A library containing high level elevator functionality. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90}} 
+\index{elevator.h@{elevator.h}!state@{state}}
+\index{state@{state}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90}{state}}}
+
+
+
+Possible states the elevator can be in at any given time. 
+
+\mbox{\hyperlink{elevator_8h}{elevator.\+h}} \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNDEFINED@{UNDEFINED}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!UNDEFINED@{UNDEFINED}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a605159e8a4c32319fd69b5d151369d93}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a605159e8a4c32319fd69b5d151369d93}} 
+U\+N\+D\+E\+F\+I\+N\+ED&Elevator is not on or inbetween floors, and is only present during startup \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IDLE@{IDLE}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!IDLE@{IDLE}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90afd6a0e4343048b10646dd2976cc5ad18}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90afd6a0e4343048b10646dd2976cc5ad18}} 
+I\+D\+LE&Elevator is on floor \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INBETWEEN@{INBETWEEN}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!INBETWEEN@{INBETWEEN}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90aea0966fb39b76e88a5c792ecccda6d63}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90aea0966fb39b76e88a5c792ecccda6d63}} 
+I\+N\+B\+E\+T\+W\+E\+EN&Elevator is inbetween two (defined) floors \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOVING@{MOVING}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!MOVING@{MOVING}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a16ebdcb23eb5337fd5bc598fa8d6035d}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a16ebdcb23eb5337fd5bc598fa8d6035d}} 
+M\+O\+V\+I\+NG&Elevator is moving \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOOROPEN@{DOOROPEN}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!DOOROPEN@{DOOROPEN}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a18cd602003cbe103c9e4c31b1457bb36}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a18cd602003cbe103c9e4c31b1457bb36}} 
+D\+O\+O\+R\+O\+P\+EN&Elevator door is open (while on floor) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OBSTRUCTION@{OBSTRUCTION}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!OBSTRUCTION@{OBSTRUCTION}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a51ca099f99b472823faf1cb3f46b9baa}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a51ca099f99b472823faf1cb3f46b9baa}} 
+O\+B\+S\+T\+R\+U\+C\+T\+I\+ON&Obstruction switch is activated \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STOPBUTTON@{STOPBUTTON}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!STOPBUTTON@{STOPBUTTON}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a0fc5143611d28055a3f260b37dd86129}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a0fc5143611d28055a3f260b37dd86129}} 
+S\+T\+O\+P\+B\+U\+T\+T\+ON&Stop button has been pressed \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 15 of file elevator.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{elevator_8h_ae734e9b4db204199a3c263e374b4c3fb}\label{elevator_8h_ae734e9b4db204199a3c263e374b4c3fb}} 
+\index{elevator.h@{elevator.h}!closeDoor@{closeDoor}}
+\index{closeDoor@{closeDoor}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{closeDoor()}{closeDoor()}}
+{\footnotesize\ttfamily void close\+Door (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Closes elevator door. 
+
+Closes the elevator door.
+
+Closes elevator door. 
+
+Definition at line 50 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_ad4755558612ef0949de0301be195bfaf}\label{elevator_8h_ad4755558612ef0949de0301be195bfaf}} 
+\index{elevator.h@{elevator.h}!compareFloor@{compareFloor}}
+\index{compareFloor@{compareFloor}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{compareFloor()}{compareFloor()}}
+{\footnotesize\ttfamily int compare\+Floor (\begin{DoxyParamCaption}\item[{int}]{Floor,  }\item[{int}]{floor\+Request }\end{DoxyParamCaption})}
+
+
+
+Checks if elevator\textquotesingle{}s current floor matches the floor requested by the client. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Floor} & Current floor elevator has visited/is on\\
+\hline
+\mbox{\texttt{ in}}  & {\em floor\+Request} & Floor requested by the client\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the floor\textquotesingle{}s match, otherwise 0 
+\end{DoxyReturn}
+
+
+Definition at line 31 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_a682fd86f4f8bba9943f024493010c4e6}\label{elevator_8h_a682fd86f4f8bba9943f024493010c4e6}} 
+\index{elevator.h@{elevator.h}!elevatorInit@{elevatorInit}}
+\index{elevatorInit@{elevatorInit}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{elevatorInit()}{elevatorInit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structelevatorState}{elevator\+State}} elevator\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the elevators properties. 
+
+\begin{DoxyReturn}{Returns}
+Instance of \mbox{\hyperlink{structelevatorState}{elevator\+State}} called \char`\"{}elevator\char`\"{} containing values corresponding to system startup 
+\end{DoxyReturn}
+
+
+Definition at line 3 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_a6722ea651570e782d8308187943c9fc8}\label{elevator_8h_a6722ea651570e782d8308187943c9fc8}} 
+\index{elevator.h@{elevator.h}!move@{move}}
+\index{move@{move}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{elevio_8h_ab0dd3595d7049b92115a766f0ea6f7e0}{Motor\+Direction}}}]{dir }\end{DoxyParamCaption})}
+
+
+
+Moves elevator in direction specified by {\ttfamily dir}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir} & Enumaration value representing the direction which the elevator should move, where -\/1 = downwards, 0 = stop, 1 = upwards \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 23 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_a72c7eadaa2a249b0092238679cd3580c}\label{elevator_8h_a72c7eadaa2a249b0092238679cd3580c}} 
+\index{elevator.h@{elevator.h}!requestIsAbove@{requestIsAbove}}
+\index{requestIsAbove@{requestIsAbove}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{requestIsAbove()}{requestIsAbove()}}
+{\footnotesize\ttfamily int request\+Is\+Above (\begin{DoxyParamCaption}\item[{int}]{Floor,  }\item[{int}]{floor\+Request }\end{DoxyParamCaption})}
+
+
+
+Checks if the floor requested by the client is at a higher floor than the elevator\textquotesingle{}s current floor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Floor} & Current floor elevator has visited/is on\\
+\hline
+\mbox{\texttt{ in}}  & {\em floor\+Request} & Floor requested by the client\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the floor requested is greater than the current floor, otherwise 0 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file elevator.\+c.
+

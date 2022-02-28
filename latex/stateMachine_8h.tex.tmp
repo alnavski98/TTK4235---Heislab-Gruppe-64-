@@ -1,0 +1,25 @@
+\hypertarget{stateMachine_8h}{}\doxysection{Tryms\+Elevator/state\+Machine.h File Reference}
+\label{stateMachine_8h}\index{TrymsElevator/stateMachine.h@{TrymsElevator/stateMachine.h}}
+
+
+A library containing state machine functionality.  
+
+
+{\ttfamily \#include \char`\"{}elevator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}request\+Manager.\+h\char`\"{}}\newline
+Include dependency graph for state\+Machine.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{stateMachine_8h_a5ea7d8384f616fac5b77db22d610fa5d}\label{stateMachine_8h_a5ea7d8384f616fac5b77db22d610fa5d}} 
+void \mbox{\hyperlink{stateMachine_8h_a5ea7d8384f616fac5b77db22d610fa5d}{state\+Machine}} ()
+\begin{DoxyCompactList}\small\item\em Uses elevator, timer and request\+Manager functionality to keep track of the different states for the elevator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A library containing state machine functionality. 
+

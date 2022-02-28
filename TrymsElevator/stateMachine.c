@@ -118,16 +118,17 @@ void stateMachine(){
                 printf("In between floors");
                 elevator.PrevFloor = elevator.Floor; // Store previous floor here
                 elevator.Floor = -1;  // Not in defined/specific floor
+                requestInDIr = -1;
                 // If elevator moves in the upwards direction and the new floor requested
                 // is greater than the floor it was on (PrevFloor) update the request list
                 // and move towards that floor
-                if(elevator.Dir == DIRN_UP && elevator.PrevFloor < elevator.currentFloorRequest){
+                if(elevator.PrevFloor < elevator.currentFloorRequest){
                     elevator.State = MOVING;
                 }
                 // If elevator moves in the downwards direction and the new floor requested
                 // is smaller/less than the floor it was on (PrevFloor) update the request list
                 // and move towards that floor
-                else if(elevator.Dir = DIRN_DOWN && elevator.PrevFloor > elevator.currentFloorRequest){
+                else if(elevator.PrevFloor > elevator.currentFloorRequest){
                     elevator.State = MOVING;
                 }
                 break;
@@ -259,3 +260,6 @@ void stateMachine(){
         }
     }
 }
+
+// Token:
+// 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
