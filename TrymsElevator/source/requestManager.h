@@ -12,11 +12,9 @@ Request requestManager;
 
 void initRequestManager();
 void printRequestManager();
-void updateRequests();
+void pollElevatorButtons();
 void updateNrRequests();
-//int isRequest();
 void getRequest();
 void getRequestInDIrection();
-//void addRequest();
 void deleteRequest();
 void deleteAllRequests();

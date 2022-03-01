@@ -6,6 +6,7 @@
 typedef enum {
     UNDEFINED = 0,
     IDLE,
+    IDLEINBETWEEN,
     MOVING,
     DOOROPEN,
     OBSTRUCTION,
@@ -15,7 +16,7 @@ typedef enum {
 typedef struct {
     state State;
     int Floor;
-    MotorDirection Dir;
+    MotorDirection Dir[2];
     int currentFloorRequest;
     int requestInDIr;
 } elevatorState;
@@ -23,20 +24,17 @@ typedef struct {
 elevatorState elev; // Global elevator instance that we use. 
 
 
-
 //elevatorState elevatorInit(); //Initiate elevator with undefined state
 void initElevator(); //Initiate elevator with undefined state
-
-//void printElevatorState(elevatorState* elevator);
 void printElevatorState();
-
 void closeDoor();
-void move(MotorDirection dir);
+void moveElevator(MotorDirection dir);
+int getFloorSensor();
+int getStopButton();
+int getObstruction();
 void stopElevator();
-int checkIfOnFloor(int floor); // This function has access to both state of elevator and pulling of floor sensor.
-int requestIsAbove();
 void openDoor();
 void closeDoor();
-void pollFloorSensor();
-void pollStopButton();
-void pollObstructionButton();
+void turnOnFloorLamp(int Floor);
+
+

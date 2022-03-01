@@ -1,34 +1,20 @@
 # include "stateMachine.h"
 
-// gjort
-// We should define global variables instead of sending them into functions. This is how data is handled in c so we should do it like that. 
-// Lage køsystem
-
-
-// To do
-// Printe på gode tidspunkt
-// Lage actions -> det å gå mellom statsene som egne funksjoner
-// Add one state
-// Change to names that is more describing. Make functions for each state in stateMachine and run it in main. Makes is more clear? 
-// Make more utilities functions. Polling button and floor sensor. 
-
 void stateUNDEFINED(){
-    //Find floor, direction and go to IDLE. 
     while(1){
-        // waiting for a defined floor reached.
-        if (elevio_floorSensor() == -1){
-            move(DIRN_DOWN);
-            elev.Dir = DIRN_DOWN;
+        int Floor = getFloorSensor();
+        if (Floor == -1){
+            moveElevator(DIRN_DOWN);
+            elev.Dir[1] = DIRN_DOWN;
         }else{
             stopElevator();
-            elev.Dir = DIRN_STOP;
+            elev.Dir[1] = DIRN_STOP;
+            elev.Floor = Floor;
+            turnOnFloorLamp(Floor);
+            elev.State = IDLE;
             break;
         }
     }
-    int Floor = elevio_floorSensor();
-    elev.Floor = Floor;
-    elevio_floorIndicator(Floor);
-    elev.State = IDLE;
 
     printf("State defined! \n");
     printElevatorState();
@@ -41,27 +27,52 @@ void stateIDLE(){
     // Check requests
     if(elev.currentFloorRequest != -1){
         if( checkIfOnFloor(elev.currentFloorRequest)){
-            stopElevator();
-            elev.Dir = DIRN_STOP;
-
-            openDoor();
-            elev.State = DOOROPEN;
-
-            deleteRequest();
+            floorReached();
             elev.currentFloorRequest = -1;
-
-            start = startTimer();
         }else if(requestIsAbove()){
-            move(DIRN_UP);
+            moveElevator(DIRN_UP);
             elev.State = MOVING;
-            elev.Dir = DIRN_UP;
+            elev.Dir[1] = DIRN_UP;
         }else{
-            move(DIRN_DOWN);
+            moveElevator(DIRN_DOWN);
             elev.State = MOVING;
-            elev.Dir = DIRN_DOWN;
+            elev.Dir[1] = DIRN_DOWN;
         }
         printElevatorState();
-        printRequestDatabase();
+        printRequestManager();
+    }
+}
+
+void stateIDLEINBETWEEN(){
+
+    // Check stop button
+    pollStopButton();
+
+    // Check requests
+    if(elev.currentFloorRequest != -1){
+        if(checkIfOnFloor(elev.currentFloorRequest)){
+            elev.State = MOVING;
+            if(elev.Dir[0] == DIRN_UP){
+                elev.Floor = elev.Floor + 1;
+                moveElevator(DIRN_DOWN);
+                elev.Dir[1] = DIRN_DOWN;
+            } else if(elev.Dir[0] == DIRN_DOWN){     
+                elev.Floor = elev.Floor - 1;           
+                moveElevator(DIRN_UP);
+                elev.Dir[1] = DIRN_UP;
+            }
+
+        }else if(requestIsAbove()){
+            moveElevator(DIRN_UP);
+            elev.State = MOVING;
+            elev.Dir[1] = DIRN_UP;
+        }else{
+            moveElevator(DIRN_DOWN);
+            elev.State = MOVING;
+            elev.Dir[1] = DIRN_DOWN;
+        }
+        printElevatorState();
+        printRequestManager();
     }
 }
 
@@ -69,38 +80,22 @@ void stateMOVING(){
     //Check stop button
     pollStopButton();
 
-    // Check for request in dir.
+    // Check if request in dir. is reached
     if(checkIfOnFloor(elev.requestInDIr)){
-        stopElevator();
-        elev.Dir = DIRN_STOP;
-
-        openDoor();
-        elev.State = DOOROPEN;
-
+        floorReached();
         elev.requestInDIr = -1;
-        deleteRequest();
-        
-        start = startTimer();
 
         printElevatorState();
-        printRequestDatabase();
+        printRequestManager();
     }
 
-    // Check if floor reached
+    // Check if request is reached
     if(checkIfOnFloor(elev.currentFloorRequest)){
-        stopElevator();
-        elev.Dir = DIRN_STOP;
-
-        openDoor();
-        elev.State = DOOROPEN;
-
+        floorReached();
         elev.currentFloorRequest = -1;
-        deleteRequest();
-    
-        start = startTimer();
 
         printElevatorState();
-        printRequestDatabase();
+        printRequestManager();
     }
 }
 
@@ -119,7 +114,7 @@ void stateDOOROPEN(){
         elev.State = IDLE;
 
         printElevatorState();
-        printRequestDatabase();
+        printRequestManager();
     }
 }
 
@@ -129,7 +124,7 @@ void stateOBSTRUCTION(){
     pollStopButton();
 
     // Check if obstruction removed
-    if(!elevio_obstruction()){
+    if(!getObstruction()){
         printf("Obstruction removed\n");
         elev.State = DOOROPEN;
         start = startTimer();
@@ -141,25 +136,17 @@ void stateSTOPBUTTON(){
     deleteAllRequests();
 
     // If we are on floor -> open door
-    if(elevio_floorSensor() != -1){ 
+    if(getFloorSensor() != -1){ 
         openDoor();
     }
 
     // Wait till stopbutton is not pressed
-    start = startTimer();
-    end = endTimer();
-    while(timeSpent(end, start) < 0.5){
-        if(elevio_stopButton()){
-            start = startTimer();
-        }
-        end = endTimer();
-    }
-    elevio_stopLamp(0);
+    wait();
     
-    // If on floor go to door open
-    // If inbetween floors go to IDLE
-    if(elevio_floorSensor() == -1){
-        elev.State = IDLE;
+
+    // If on floor go to door open or If inbetween floors go to IDLE
+    if(getFloorSensor()== -1){
+        elev.State = IDLEINBETWEEN;
     }else{
         elev.State = DOOROPEN;
         start = startTimer();
@@ -167,7 +154,7 @@ void stateSTOPBUTTON(){
     
     // Print state
     printElevatorState();
-    printRequestDatabase();
+    printRequestManager();
 }
 
 
@@ -186,7 +173,7 @@ void stateMachine(){
         pollFloorSensor();
         
         // Poll buttons, update requestManager
-        updateRequests();
+        pollElevatorButtons();
         updateNrRequests();
         
         // Get requests and requests in direction of travel. 
@@ -200,6 +187,10 @@ void stateMachine(){
 
             case IDLE:
                 stateIDLE();
+                break;
+
+            case IDLEINBETWEEN:
+                stateIDLEINBETWEEN();
                 break;
 
             case MOVING:

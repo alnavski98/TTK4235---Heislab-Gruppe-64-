@@ -2,9 +2,7 @@
 
 void initRequestManager(){
     printf("Database initiating \n");
-  
     requestManager.numRequest = 0;
-
     for(int b = 0; b < N_BUTTONS; b++){
         for(int f = 0; f < N_FLOORS; f++){
             requestManager.Database[b][f] = 0;
@@ -27,7 +25,7 @@ void printRequestManager(){
 }
 
 
-void updateRequests(){
+void pollElevatorButtons(){
     // Check for requests.
     for(int f = 0; f < N_FLOORS; f++){ 
         for(int b = 0; b < N_BUTTONS; b++){
@@ -56,7 +54,7 @@ void updateNrRequests(){
 void getRequest(){
     if(requestManager.numRequest >= 1 && elev.currentFloorRequest == -1){
         printf("Getting new request \n");
-        if(elev.Dir == DIRN_STOP){
+        if(elev.Dir[1] == DIRN_STOP){
             // Request on floor: 
             for(int b = 0; b<N_BUTTONS; b++){
                 if(requestManager.Database[b][elev.Floor] == 1){
@@ -93,7 +91,7 @@ void getRequest(){
 
 void getRequestInDIrection(){
     if(requestManager.numRequest >= 1 && elev.requestInDIr == -1){
-        if(elev.Dir == DIRN_UP){
+        if(elev.Dir[1] == DIRN_UP){
             if((elev.currentFloorRequest - elev.Floor)>1){
                 for(int b = 0; b < N_BUTTONS; b++){
                     if (requestManager.Database[b][elev.Floor+1] == 1){
@@ -102,7 +100,7 @@ void getRequestInDIrection(){
                     }
                 }
             }
-        }else if(elev.Dir == DIRN_DOWN){
+        }else if(elev.Dir[1] == DIRN_DOWN){
             if((elev.Floor-elev.currentFloorRequest) >1){
                 for(int b = 0; b < N_BUTTONS; b++){
                     if (requestManager.Database[b][elev.Floor-1] == 1){

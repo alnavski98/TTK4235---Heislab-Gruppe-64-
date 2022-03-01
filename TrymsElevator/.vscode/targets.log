@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Feb 27 19:50:50 2022
+# Make data base, printed on Tue Mar  1 08:46:20 2022
 
 # Variables
 
@@ -47,7 +47,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:55570
+JOURNAL_STREAM = 8:49740
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
@@ -75,7 +75,7 @@ _ = /usr/bin/code
 # environment
 ROS_PACKAGE_PATH = /opt/ros/noetic/share
 # environment
-MANAGERPID = 2099
+MANAGERPID = 2063
 # environment
 ROS_PYTHON_VERSION = 3
 # environment
@@ -93,7 +93,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/trym-XPS-13-9310:@/tmp/.ICE-unix/2331,unix/trym-XPS-13-9310:/tmp/.ICE-unix/2331
+SESSION_MANAGER = local/trym-XPS-13-9310:@/tmp/.ICE-unix/2295,unix/trym-XPS-13-9310:/tmp/.ICE-unix/2295
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -102,10 +102,11 @@ ROS_ROOT = /opt/ros/noetic/share/ros
 XDG_MENU_PREFIX = gnome-
 # environment
 VSCODE_LOG_STACK = false
+ 
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=454b6872-eca0-4599-91f6-f234b89d2054&iid=454b6872-eca0-4599-91f6-f234b89d2054&sid=454b6872-eca0-4599-91f6-f234b89d2054","uploadToServer":true}
 # environment
-INVOCATION_ID = 63bdf6740ed54a81897f653c579e279b
+INVOCATION_ID = b7b476a8f1424bf58227f98d1e9b0362
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -127,7 +128,7 @@ PWD = /home/trym/Documents/TilDat/ElevatorLab/TTK4235---Heislab-Gruppe-64-/Tryms
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2288
+SSH_AGENT_PID = 2251
 # environment
 PKG_CONFIG_PATH = /opt/ros/noetic/lib/pkgconfig
 # environment
@@ -179,9 +180,9 @@ CC := gcc
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-17bb00cb-30d7-472f-ba8b-2647ac4271ce.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-61542378-34a1-4b78-96dc-f0cdbf821c8d.sock
 # makefile (from 'Makefile', line 6)
-SOURCE = main.c elevio.c timer.c elevator.c requestManager.c stateMachine.c
+SOURCE = main.c stateMachine.c requestManager.c elevator.c timer.c elevio.c 
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -201,7 +202,7 @@ LC_TELEPHONE = nb_NO.UTF-8
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/trym/Documents/TilDat/ElevatorLab/TTK4235---Heislab-Gruppe-64-
+OLDPWD = /home/trym
 # default
 .VARIABLES := 
 # automatic
@@ -249,11 +250,11 @@ LC_ALL = C
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/c23b4cd7_94b8_49e7_a301_db56a2343805
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/6ffddff4_0a9f_49dd_b24b_825bf3291e31
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.853
+GNOME_TERMINAL_SERVICE = :1.142
 # default
 SUFFIXES := 
 # environment
@@ -272,9 +273,8 @@ LC_ADDRESS = nb_NO.UTF-8
 LANG = C
 # environment
 TERM = xterm-256color
- 
 # environment
-VSCODE_PID = 28421
+VSCODE_PID = 10439
 # variable set hash-table stats:
 # Load=131/1024=13%, Rehash=0, Collisions=21/157=13%
 
@@ -284,9 +284,9 @@ VSCODE_PID = 28421
 
 # Directories
 
-# . (device 66311, inode 6283403): 24 files, no impossibilities.
+# . (device 66311, inode 6283403): 23 files, no impossibilities.
 
-# 24 files, no impossibilities in 1 directories.
+# 23 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -333,7 +333,7 @@ timer.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-27 19:50:30.226678481
+#  Last modified 2022-03-01 08:46:04.068825967
 #  File has been updated.
 #  Successfully updated.
 
@@ -363,7 +363,7 @@ stateMachine.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-main: main.c elevio.c timer.c elevator.c requestManager.c stateMachine.c
+main: main.c stateMachine.c requestManager.c elevator.c timer.c elevio.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -381,9 +381,9 @@ main: main.c elevio.c timer.c elevator.c requestManager.c stateMachine.c
 # strcache buffers: 1 (0) / strings = 31 / storage = 311 B / avg = 10 B
 # current buf: size = 8162 B / used = 311 B / count = 31 / avg = 10 B
 
-# strcache performance: lookups = 46 / hit rate = 32%
+# strcache performance: lookups = 45 / hit rate = 31%
 # hash-table stats:
-# Load=31/8192=0%, Rehash=0, Collisions=1/46=2%
-# Finished Make data base on Sun Feb 27 19:50:50 2022
+# Load=31/8192=0%, Rehash=0, Collisions=1/45=2%
+# Finished Make data base on Tue Mar  1 08:46:20 2022
 
  
