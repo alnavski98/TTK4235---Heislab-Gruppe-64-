@@ -13,6 +13,7 @@ void initRequestManager(){
 void printRequestManager(){
     printf("\n");
     printf("Request database:\n");
+    
     printf("+-------------------------------+\n");
     printf("|                               |\n");
     printf("| Floor     |   0   1   2   3   |\n");
@@ -24,9 +25,9 @@ void printRequestManager(){
     printf("\n");
 }
 
-
 void pollElevatorButtons(){
-    // Check for requests.
+    // Check for new requests.
+    int counter = 0;
     for(int f = 0; f < N_FLOORS; f++){ 
         for(int b = 0; b < N_BUTTONS; b++){
             int btnPressed = elevio_callButton(f, b);
@@ -34,15 +35,7 @@ void pollElevatorButtons(){
                 elevio_buttonLamp(f, b, 1);
                 requestManager.Database[b][f] = 1;
             }
-        }
-    }
-}
-
-void updateNrRequests(){
-    int counter = 0;
-    for(int f = 0; f < N_FLOORS; f++){ // Loops through all the buttons if they are pressed?
-        for(int b = 0; b < N_BUTTONS; b++){
-            if (requestManager.Database[b][f] == 1){  
+            if (requestManager.Database[b][f] == 1){
                 counter += 1;
             }
         }
@@ -51,7 +44,7 @@ void updateNrRequests(){
 }
 
 
-void getRequest(){
+void getNewRequest(){
     if(requestManager.numRequest >= 1 && elev.currentFloorRequest == -1){
         printf("Getting new request \n");
         if(elev.Dir[1] == DIRN_STOP){
@@ -89,7 +82,7 @@ void getRequest(){
 }
 
 
-void getRequestInDIrection(){
+void checkRequestInDIrection(){
     if(requestManager.numRequest >= 1 && elev.requestInDIr == -1){
         if(elev.Dir[1] == DIRN_UP){
             if((elev.currentFloorRequest - elev.Floor)>1){
@@ -101,7 +94,7 @@ void getRequestInDIrection(){
                 }
             }
         }else if(elev.Dir[1] == DIRN_DOWN){
-            if((elev.Floor-elev.currentFloorRequest) >1){
+            if((elev.Floor-elev.currentFloorRequest) > 1){
                 for(int b = 0; b < N_BUTTONS; b++){
                     if (requestManager.Database[b][elev.Floor-1] == 1){
                         elev.requestInDIr = elev.Floor - 1;

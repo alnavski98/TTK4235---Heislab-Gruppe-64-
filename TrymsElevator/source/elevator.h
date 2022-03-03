@@ -11,7 +11,7 @@ typedef enum {
     DOOROPEN,
     OBSTRUCTION,
     STOPBUTTON,
-} state; //Need to have state after the enum to use it in the script. 
+} state; 
 
 typedef struct {
     state State;
@@ -24,17 +24,14 @@ typedef struct {
 elevatorState elev; // Global elevator instance that we use. 
 
 
-//elevatorState elevatorInit(); //Initiate elevator with undefined state
-void initElevator(); //Initiate elevator with undefined state
+void initElevator(); 
 void printElevatorState();
-void closeDoor();
 void moveElevator(MotorDirection dir);
-int getFloorSensor();
-int getStopButton();
-int getObstruction();
 void stopElevator();
 void openDoor();
 void closeDoor();
-void turnOnFloorLamp(int Floor);
 
 
+void pollFloorSensor();
+void pollStopButton();
+void pollObstructionButton();

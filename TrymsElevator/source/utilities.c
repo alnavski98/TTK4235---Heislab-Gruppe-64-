@@ -13,7 +13,7 @@ void floorReached(int floor){
     start = startTimer();
 }
 
-void wait(){
+void waitStopUnpressed(){
     start = startTimer();
     end = endTimer();
     while(timeSpent(end, start) < 0.5){
@@ -44,27 +44,18 @@ int requestIsAbove(){
 
 
 
-void pollFloorSensor(){
-    int Floor = getFloorSensor();
-    if(Floor != elev.Floor && Floor != -1){
-        elev.Floor = Floor;
-        turnOnFloorLamp(Floor);
-    }
+int getFloorSensor(){
+    return elevio_floorSensor();
 }
 
-void pollStopButton(){
-    if(elevio_stopButton()){
-        //printf("Stop Button pressed\n");
-        stopElevator();
-        elev.Dir[0] = elev.Dir[1];
-        elev.Dir[1] = DIRN_STOP;
-        elevio_stopLamp(1);
-        elev.State = STOPBUTTON;
-    }
+int getStopButton(){
+    return elevio_stopButton();
 }
-void pollObstructionButton(){
-    if(elevio_obstruction()){
-        printf("Obstruction in Door!\n");
-        elev.State = OBSTRUCTION;
-    }
+
+void turnOnFloorLamp(int Floor){
+    elevio_floorIndicator(Floor);
+}
+
+int getObstruction(){
+    return elevio_obstruction();
 }

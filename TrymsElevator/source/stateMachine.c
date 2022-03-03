@@ -51,7 +51,6 @@ void stateIDLEINBETWEEN(){
     // Check requests
     if(elev.currentFloorRequest != -1){
         if(checkIfOnFloor(elev.currentFloorRequest)){
-            elev.State = MOVING;
             if(elev.Dir[0] == DIRN_UP){
                 elev.Floor = elev.Floor + 1;
                 moveElevator(DIRN_DOWN);
@@ -61,6 +60,7 @@ void stateIDLEINBETWEEN(){
                 moveElevator(DIRN_UP);
                 elev.Dir[1] = DIRN_UP;
             }
+            elev.State = MOVING;
 
         }else if(requestIsAbove()){
             moveElevator(DIRN_UP);
@@ -118,7 +118,6 @@ void stateDOOROPEN(){
     }
 }
 
-
 void stateOBSTRUCTION(){
     // Check stop button
     pollStopButton();
@@ -141,10 +140,9 @@ void stateSTOPBUTTON(){
     }
 
     // Wait till stopbutton is not pressed
-    wait();
+    waitStopUnpressed();
     
-
-    // If on floor go to door open or If inbetween floors go to IDLE
+    // If on floor go to door open or If inbetween floors go to IDLEINBETWEEN
     if(getFloorSensor()== -1){
         elev.State = IDLEINBETWEEN;
     }else{
@@ -174,11 +172,11 @@ void stateMachine(){
         
         // Poll buttons, update requestManager
         pollElevatorButtons();
-        updateNrRequests();
+        //updateNrRequests();
         
         // Get requests and requests in direction of travel. 
-        getRequest();
-        getRequestInDIrection();
+        getNewRequest();
+        checkRequestInDIrection();
 
         switch(elev.State){
             case UNDEFINED:

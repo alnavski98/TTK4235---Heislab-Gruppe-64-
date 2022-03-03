@@ -28,14 +28,6 @@ void moveElevator(MotorDirection dir){
     elevio_motorDirection(dir);
 }
 
-int getFloorSensor(){
-    return elevio_floorSensor();
-}
-
-int getStopButton(){
-    return elevio_stopButton();
-}
-
 void stopElevator(){
     elevio_motorDirection(DIRN_STOP);
 }
@@ -47,10 +39,30 @@ void closeDoor(){
     elevio_doorOpenLamp(0);
 }
 
-void turnOnFloorLamp(int Floor){
-    elevio_floorIndicator(Floor);
+
+void pollFloorSensor(){
+    int Floor = getFloorSensor();
+    if(Floor != elev.Floor && Floor != -1){
+        elev.Floor = Floor;
+        turnOnFloorLamp(Floor);
+    }
 }
 
-int getObstruction(){
-    return elevio_obstruction();
+void pollStopButton(){
+    if(elevio_stopButton()){
+        //printf("Stop Button pressed\n");
+        stopElevator();
+        elev.Dir[0] = elev.Dir[1];
+        elev.Dir[1] = DIRN_STOP;
+        elevio_stopLamp(1);
+        elev.State = STOPBUTTON;
+    }
 }
+
+void pollObstructionButton(){
+    if(elevio_obstruction()){
+        printf("Obstruction in Door!\n");
+        elev.State = OBSTRUCTION;
+    }
+}
+

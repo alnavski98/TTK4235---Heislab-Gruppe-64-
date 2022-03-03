@@ -6,12 +6,12 @@
 #include "timer.h"
 
 void floorReached();
-void wait();
+void waitStopUnpressed();
 
-
-int checkIfOnFloor(int floor); // This function has access to both state of elevator and pulling of floor sensor.
+int checkIfOnFloor(int floor); 
 int requestIsAbove();
-void pollFloorSensor();
-void pollStopButton();
-void pollObstructionButton();
 
+int getFloorSensor();
+int getStopButton();
+int getObstruction();
+void turnOnFloorLamp(int Floor);
