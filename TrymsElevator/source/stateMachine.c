@@ -109,7 +109,7 @@ void stateDOOROPEN(){
     pollStopButton();
 
     // Close door after 3 seconds
-    if(timeSpent(end, start) >= 3){
+    if(timeSpent() >= 3){
         closeDoor();
         elev.State = IDLE;
 

@@ -10,7 +10,7 @@ clock_t endTimer(){
     return end;
 }
 
-double timeSpent(clock_t end, clock_t start){
+double timeSpent(){
     double spent = (double)(end-start)/CLOCKS_PER_SEC;
     return spent;
 }   

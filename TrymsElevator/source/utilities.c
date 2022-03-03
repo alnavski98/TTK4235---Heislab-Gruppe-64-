@@ -16,7 +16,7 @@ void floorReached(int floor){
 void waitStopUnpressed(){
     start = startTimer();
     end = endTimer();
-    while(timeSpent(end, start) < 0.5){
+    while(timeSpent() < 0.5){
         if(getStopButton()){
             start = startTimer();
         }
