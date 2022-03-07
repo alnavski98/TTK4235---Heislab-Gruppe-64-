@@ -1,7 +1,6 @@
 # pragma once
 #include <stdio.h>
 #include "elevator.h"
-#include "elevio.h"
 
 typedef struct {
     int numRequest;
@@ -12,11 +11,8 @@ Request requestManager;
 
 void initRequestManager();
 void printRequestManager();
-
-void getNewRequest();
-void checkRequestInDIrection();
-
-void deleteRequest();
-void deleteAllRequests();
-
 void pollElevatorButtons();
+void getNewRequest();
+void checkRequestInDirection();
+void deleteRequestsOnFloor();
+void deleteAllRequests();

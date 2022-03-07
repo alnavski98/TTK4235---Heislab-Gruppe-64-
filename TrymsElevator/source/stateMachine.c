@@ -17,7 +17,7 @@ void stateUNDEFINED(){
     }
 
     printf("State defined! \n");
-    printElevatorState();
+    printElevator();
 }
 
 void stateIDLE(){
@@ -38,7 +38,7 @@ void stateIDLE(){
             elev.State = MOVING;
             elev.Dir[1] = DIRN_DOWN;
         }
-        printElevatorState();
+        printElevator();
         printRequestManager();
     }
 }
@@ -71,7 +71,7 @@ void stateIDLEINBETWEEN(){
             elev.State = MOVING;
             elev.Dir[1] = DIRN_DOWN;
         }
-        printElevatorState();
+        printElevator();
         printRequestManager();
     }
 }
@@ -85,7 +85,7 @@ void stateMOVING(){
         floorReached();
         elev.requestInDIr = -1;
 
-        printElevatorState();
+        printElevator();
         printRequestManager();
     }
 
@@ -94,7 +94,7 @@ void stateMOVING(){
         floorReached();
         elev.currentFloorRequest = -1;
 
-        printElevatorState();
+        printElevator();
         printRequestManager();
     }
 }
@@ -113,7 +113,7 @@ void stateDOOROPEN(){
         closeDoor();
         elev.State = IDLE;
 
-        printElevatorState();
+        printElevator();
         printRequestManager();
     }
 }
@@ -140,7 +140,15 @@ void stateSTOPBUTTON(){
     }
 
     // Wait till stopbutton is not pressed
-    waitStopUnpressed();
+    start = startTimer();
+    end = endTimer();
+    while(timeSpent() < 0.5){
+        if(getStopButton()){
+            start = startTimer();
+        }
+        end = endTimer();
+    }
+    setStopLamp(0);
     
     // If on floor go to door open or If inbetween floors go to IDLEINBETWEEN
     if(getFloorSensor()== -1){
@@ -151,7 +159,7 @@ void stateSTOPBUTTON(){
     }
     
     // Print state
-    printElevatorState();
+    printElevator();
     printRequestManager();
 }
 
@@ -160,7 +168,7 @@ void stateSTOPBUTTON(){
 void stateMachine(){
     // Initiating elevator
     initElevator();
-    printElevatorState();
+    printElevator();
 
     // Initiating requestManager
     initRequestManager();
@@ -176,7 +184,7 @@ void stateMachine(){
         
         // Get requests and requests in direction of travel. 
         getNewRequest();
-        checkRequestInDIrection();
+        checkRequestInDirection();
 
         switch(elev.State){
             case UNDEFINED:

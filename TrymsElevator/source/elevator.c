@@ -15,7 +15,7 @@ void initElevator(){
     printf("Finished function \n");
 }
 
-void printElevatorState(){
+void printElevator(){
     printf("\n");
     printf("Elevator status: \n");
     printf("#+------------------------------------+\n");
@@ -66,3 +66,34 @@ void pollObstructionButton(){
     }
 }
 
+
+
+int getFloorSensor(){
+    return elevio_floorSensor();
+}
+
+int getStopButton(){
+    return elevio_stopButton();
+}
+
+
+
+int getObstruction(){
+    return elevio_obstruction();
+}
+
+void turnOnFloorLamp(int Floor){
+    elevio_floorIndicator(Floor);
+}
+
+void setStopLamp(int value){
+    elevio_stopLamp(value);
+}
+
+void setButtonLamp(int floor, int button, int value){
+    elevio_buttonLamp(floor,button,value);
+}
+
+int checkButtonPress(int floor, int button){
+    return elevio_callButton(floor, button);
+}

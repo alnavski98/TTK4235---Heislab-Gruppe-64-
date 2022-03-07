@@ -8,21 +8,9 @@ void floorReached(int floor){
     openDoor();
     elev.State = DOOROPEN;
 
-    deleteRequest();
+    deleteRequestsOnFloor();
 
     start = startTimer();
-}
-
-void waitStopUnpressed(){
-    start = startTimer();
-    end = endTimer();
-    while(timeSpent() < 0.5){
-        if(getStopButton()){
-            start = startTimer();
-        }
-        end = endTimer();
-    }
-    elevio_stopLamp(0);
 }
 
 
@@ -44,18 +32,3 @@ int requestIsAbove(){
 
 
 
-int getFloorSensor(){
-    return elevio_floorSensor();
-}
-
-int getStopButton(){
-    return elevio_stopButton();
-}
-
-void turnOnFloorLamp(int Floor){
-    elevio_floorIndicator(Floor);
-}
-
-int getObstruction(){
-    return elevio_obstruction();
-}

@@ -25,14 +25,17 @@ void printRequestManager(){
     printf("\n");
 }
 
+
+
+
 void pollElevatorButtons(){
     // Check for new requests.
     int counter = 0;
     for(int f = 0; f < N_FLOORS; f++){ 
         for(int b = 0; b < N_BUTTONS; b++){
-            int btnPressed = elevio_callButton(f, b);
+            int btnPressed = checkButtonPress(f, b);
             if (btnPressed){
-                elevio_buttonLamp(f, b, 1);
+                setButtonLamp(f, b, 1);
                 requestManager.Database[b][f] = 1;
             }
             if (requestManager.Database[b][f] == 1){
@@ -82,11 +85,11 @@ void getNewRequest(){
 }
 
 
-void checkRequestInDIrection(){
+void checkRequestInDirection(){
     if(requestManager.numRequest >= 1 && elev.requestInDIr == -1){
         if(elev.Dir[1] == DIRN_UP){
             if((elev.currentFloorRequest - elev.Floor)>1){
-                for(int b = 0; b < N_BUTTONS; b++){
+                for(int b = 0; b < N_BUTTONS; b=b+2){
                     if (requestManager.Database[b][elev.Floor+1] == 1){
                         elev.requestInDIr = elev.Floor + 1;
                         return;
@@ -95,7 +98,7 @@ void checkRequestInDIrection(){
             }
         }else if(elev.Dir[1] == DIRN_DOWN){
             if((elev.Floor-elev.currentFloorRequest) > 1){
-                for(int b = 0; b < N_BUTTONS; b++){
+                for(int b = 1; b < N_BUTTONS; b++){
                     if (requestManager.Database[b][elev.Floor-1] == 1){
                         elev.requestInDIr = elev.Floor - 1;
                         return;
@@ -107,10 +110,10 @@ void checkRequestInDIrection(){
 }
 
 
-void deleteRequest(){
+void deleteRequestsOnFloor(){
     for(int b = 0; b < N_BUTTONS; b++){
         if(requestManager.Database[b][elev.Floor] == 1){
-            elevio_buttonLamp(elev.Floor, b, 0);
+            setButtonLamp(elev.Floor, b, 0);
             requestManager.Database[b][elev.Floor] = 0;
             requestManager.numRequest -= 1;
         }
@@ -124,7 +127,7 @@ void deleteAllRequests(){
     for(int b = 0; b < N_BUTTONS; b++){
         for(int f = 0; f < N_FLOORS; f++){
             requestManager.Database[b][f] = 0;
-            elevio_buttonLamp(f, b, 0);
+            setButtonLamp(f, b, 0);
         }
     }
     elev.currentFloorRequest = -1;

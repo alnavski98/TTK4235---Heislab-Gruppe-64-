@@ -25,7 +25,7 @@ elevatorState elev; // Global elevator instance that we use.
 
 
 void initElevator(); 
-void printElevatorState();
+void printElevator();
 void moveElevator(MotorDirection dir);
 void stopElevator();
 void openDoor();
@@ -35,3 +35,15 @@ void closeDoor();
 void pollFloorSensor();
 void pollStopButton();
 void pollObstructionButton();
+
+int getObstruction();
+int getStopButton();
+int getFloorSensor();
+
+void setStopLamp(int value);
+void setButtonLamp(int floor, int button, int value);
+int checkButtonPress(int floor, int button);
+
+void turnOnFloorLamp(int Floor);
+
+

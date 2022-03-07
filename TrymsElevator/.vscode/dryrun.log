@@ -1,5 +1,19 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/trym/Documents/TilDat/ElevatorLab/TTK4235---Heislab-Gruppe-64-/TrymsElevator'
-gcc -o main main.c stateMachine.c requestManager.c elevator.c timer.c elevio.c  
+mkdir -p build
+clang -o build/elevio.o -c -Wall -g -std=gnu11 -fsanitize=address source/elevio.c
+mkdir -p build
+clang -o build/requestManager.o -c -Wall -g -std=gnu11 -fsanitize=address source/requestManager.c
+mkdir -p build
+clang -o build/elevator.o -c -Wall -g -std=gnu11 -fsanitize=address source/elevator.c
+mkdir -p build
+clang -o build/stateMachine.o -c -Wall -g -std=gnu11 -fsanitize=address source/stateMachine.c
+mkdir -p build
+clang -o build/timer.o -c -Wall -g -std=gnu11 -fsanitize=address source/timer.c
+mkdir -p build
+clang -o build/utilities.o -c -Wall -g -std=gnu11 -fsanitize=address source/utilities.c
+mkdir -p build
+clang -o build/main.o -c -Wall -g -std=gnu11 -fsanitize=address source/main.c
+clang build/elevio.o build/requestManager.o build/elevator.o build/stateMachine.o build/timer.o build/utilities.o build/main.o -o elevator -fsanitize=address
 make: Leaving directory '/home/trym/Documents/TilDat/ElevatorLab/TTK4235---Heislab-Gruppe-64-/TrymsElevator'
  
