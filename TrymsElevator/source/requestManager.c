@@ -29,7 +29,7 @@ void printRequestManager(){
 
 
 void pollElevatorButtons(){
-    // Check for new requests.
+    // Check for new requests
     int counter = 0;
     for(int f = 0; f < N_FLOORS; f++){ 
         for(int b = 0; b < N_BUTTONS; b++){

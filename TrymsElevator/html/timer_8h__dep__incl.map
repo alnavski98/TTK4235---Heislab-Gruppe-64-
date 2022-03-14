@@ -1,0 +1,9 @@
+<map id="source/timer.h" name="source/timer.h">
+<area shape="rect" id="node1" title="A timer module providing useful functionality for the elevator door and stop button." alt="" coords="247,5,363,32"/>
+<area shape="rect" id="node2" href="$utilities_8h.html" title="A utilities module defining useful functions for cleaner and more readable code." alt="" coords="166,80,297,107"/>
+<area shape="rect" id="node7" href="$timer_8c_source.html" title=" " alt="" coords="321,80,435,107"/>
+<area shape="rect" id="node3" href="$stateMachine_8h.html" title="A module containing the finite state machine." alt="" coords="60,155,229,181"/>
+<area shape="rect" id="node6" href="$utilities_8c_source.html" title=" " alt="" coords="253,155,383,181"/>
+<area shape="rect" id="node4" href="$main_8c_source.html" title=" " alt="" coords="5,229,119,256"/>
+<area shape="rect" id="node5" href="$stateMachine_8c_source.html" title=" " alt="" coords="143,229,311,256"/>
+</map>

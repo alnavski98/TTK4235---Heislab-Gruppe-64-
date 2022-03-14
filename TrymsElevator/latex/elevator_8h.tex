@@ -1,0 +1,357 @@
+\hypertarget{elevator_8h}{}\doxysection{source/elevator.h File Reference}
+\label{elevator_8h}\index{source/elevator.h@{source/elevator.h}}
+
+
+A module containing high level elevator functionality.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}elevio.\+h\char`\"{}}\newline
+Include dependency graph for elevator.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{elevator_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{elevator_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structelevatorState}{elevator\+State}}
+\begin{DoxyCompactList}\small\item\em A struct containing real time information on the elevator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90}{state}} \{ \newline
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a605159e8a4c32319fd69b5d151369d93}{U\+N\+D\+E\+F\+I\+N\+ED}} = 0, 
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90afd6a0e4343048b10646dd2976cc5ad18}{I\+D\+LE}}, 
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a6b39e3e9c240e10716aa4b52f96d0013}{I\+D\+L\+E\+I\+N\+B\+E\+T\+W\+E\+EN}}, 
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a16ebdcb23eb5337fd5bc598fa8d6035d}{M\+O\+V\+I\+NG}}, 
+\newline
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a18cd602003cbe103c9e4c31b1457bb36}{D\+O\+O\+R\+O\+P\+EN}}, 
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a51ca099f99b472823faf1cb3f46b9baa}{O\+B\+S\+T\+R\+U\+C\+T\+I\+ON}}, 
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a0fc5143611d28055a3f260b37dd86129}{S\+T\+O\+P\+B\+U\+T\+T\+ON}}
+ \}
+\begin{DoxyCompactList}\small\item\em Defined states the elevator can have at any given time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{elevator_8h_abd50573210a8ea486d9c9d19f4a11d24}{init\+Elevator}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the elevator status. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{elevator_8h_a1887cedbbb10288561373b2ba3250b9c}\label{elevator_8h_a1887cedbbb10288561373b2ba3250b9c}} 
+void \mbox{\hyperlink{elevator_8h_a1887cedbbb10288561373b2ba3250b9c}{print\+Elevator}} ()
+\begin{DoxyCompactList}\small\item\em Displays the current \mbox{\hyperlink{structelevatorState}{elevator\+State}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{elevator_8h_a850c1731b7d7b208d12b571314c734cf}{move\+Elevator}} (\mbox{\hyperlink{elevio_8h_ab0dd3595d7049b92115a766f0ea6f7e0}{Motor\+Direction}} dir)
+\begin{DoxyCompactList}\small\item\em Moves elevator in direction specified by {\ttfamily dir}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{elevator_8h_a59880d0c1e46eabf3aba586205fb0ac8}\label{elevator_8h_a59880d0c1e46eabf3aba586205fb0ac8}} 
+void \mbox{\hyperlink{elevator_8h_a59880d0c1e46eabf3aba586205fb0ac8}{stop\+Elevator}} ()
+\begin{DoxyCompactList}\small\item\em Stops the elevator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{elevator_8h_aaae9d7fb5b7e15211adbc7d4fa2d4a3e}\label{elevator_8h_aaae9d7fb5b7e15211adbc7d4fa2d4a3e}} 
+void \mbox{\hyperlink{elevator_8h_aaae9d7fb5b7e15211adbc7d4fa2d4a3e}{open\+Door}} ()
+\begin{DoxyCompactList}\small\item\em Opens the elevator door, or in this case door lamp is turned on. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{elevator_8h_ae734e9b4db204199a3c263e374b4c3fb}\label{elevator_8h_ae734e9b4db204199a3c263e374b4c3fb}} 
+void \mbox{\hyperlink{elevator_8h_ae734e9b4db204199a3c263e374b4c3fb}{close\+Door}} ()
+\begin{DoxyCompactList}\small\item\em Closes the elevator door, or in this case door lamp is turned off. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{elevator_8h_ace7629cf90a9dac3be245826a6ec0dbd}{poll\+Floor\+Sensor}} ()
+\begin{DoxyCompactList}\small\item\em Polls the floor sensor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{elevator_8h_a9f4421076e75c645e357fbfce8b41b71}{poll\+Stop\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Polls stop button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{elevator_8h_a60905bab15ecea03abb13590657e43cb}{poll\+Obstruction\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Polls obstruction switch. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{elevator_8h_a23512b2e0d8e12292f667e64a0b5ce84}{get\+Obstruction}} ()
+\begin{DoxyCompactList}\small\item\em Gives current obstruction sensor data. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{elevator_8h_ae5678b01921ffc7ff5a5a223ba8f1a75}{get\+Stop\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Gives current stop button sensor data. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{elevator_8h_ace1409f248a68d67185e7b5cb1a98247}{get\+Floor\+Sensor}} ()
+\begin{DoxyCompactList}\small\item\em Gives current floor sensor data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{elevator_8h_acb1b2fd68090f22b04a85f668322afb4}{set\+Stop\+Lamp}} (int value)
+\begin{DoxyCompactList}\small\item\em Sets the stop button lamp on or off depending on the value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{elevator_8h_a65e30a52c2bb7308c994cbe44ef9bf31}{set\+Button\+Lamp}} (int floor, int button, int value)
+\begin{DoxyCompactList}\small\item\em Sets the button button lamp on or off depending on the value. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{elevator_8h_a123bbac3a3b871c12a70d55166e53b9d}{check\+Button\+Press}} (int floor, int button)
+\begin{DoxyCompactList}\small\item\em Checks if a specific button is pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{elevator_8h_ada8affbd0d3c1d3295a376ddc7624ce6}{turn\+On\+Floor\+Lamp}} (int Floor)
+\begin{DoxyCompactList}\small\item\em Turns on the floor lamp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{elevator_8h_a4ee8665f117b8a5ff7ae9a69a6d96727}\label{elevator_8h_a4ee8665f117b8a5ff7ae9a69a6d96727}} 
+\mbox{\hyperlink{structelevatorState}{elevator\+State}} {\bfseries elev}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A module containing high level elevator functionality. 
+
+Storing and modifying real time information on the elevator. It also uses the elevator driver to control it. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90}} 
+\index{elevator.h@{elevator.h}!state@{state}}
+\index{state@{state}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90}{state}}}
+
+
+
+Defined states the elevator can have at any given time. 
+
+\mbox{\hyperlink{elevator_8h}{elevator.\+h}} \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNDEFINED@{UNDEFINED}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!UNDEFINED@{UNDEFINED}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a605159e8a4c32319fd69b5d151369d93}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a605159e8a4c32319fd69b5d151369d93}} 
+U\+N\+D\+E\+F\+I\+N\+ED&Startup state and only entered once. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IDLE@{IDLE}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!IDLE@{IDLE}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90afd6a0e4343048b10646dd2976cc5ad18}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90afd6a0e4343048b10646dd2976cc5ad18}} 
+I\+D\+LE&Elevator is on a floor and waiting for a request. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IDLEINBETWEEN@{IDLEINBETWEEN}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!IDLEINBETWEEN@{IDLEINBETWEEN}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a6b39e3e9c240e10716aa4b52f96d0013}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a6b39e3e9c240e10716aa4b52f96d0013}} 
+I\+D\+L\+E\+I\+N\+B\+E\+T\+W\+E\+EN&Elevator is inbetween two (defined) floors and waiting for a request. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOVING@{MOVING}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!MOVING@{MOVING}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a16ebdcb23eb5337fd5bc598fa8d6035d}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a16ebdcb23eb5337fd5bc598fa8d6035d}} 
+M\+O\+V\+I\+NG&Elevator is moving to requested floor-\/ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOOROPEN@{DOOROPEN}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!DOOROPEN@{DOOROPEN}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a18cd602003cbe103c9e4c31b1457bb36}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a18cd602003cbe103c9e4c31b1457bb36}} 
+D\+O\+O\+R\+O\+P\+EN&Elevator door is open. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OBSTRUCTION@{OBSTRUCTION}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!OBSTRUCTION@{OBSTRUCTION}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a51ca099f99b472823faf1cb3f46b9baa}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a51ca099f99b472823faf1cb3f46b9baa}} 
+O\+B\+S\+T\+R\+U\+C\+T\+I\+ON&Obstruction switch is activated. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STOPBUTTON@{STOPBUTTON}!elevator.h@{elevator.h}}\index{elevator.h@{elevator.h}!STOPBUTTON@{STOPBUTTON}}}\mbox{\Hypertarget{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a0fc5143611d28055a3f260b37dd86129}\label{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90a0fc5143611d28055a3f260b37dd86129}} 
+S\+T\+O\+P\+B\+U\+T\+T\+ON&Stop button has been pressed. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 16 of file elevator.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{elevator_8h_a123bbac3a3b871c12a70d55166e53b9d}\label{elevator_8h_a123bbac3a3b871c12a70d55166e53b9d}} 
+\index{elevator.h@{elevator.h}!checkButtonPress@{checkButtonPress}}
+\index{checkButtonPress@{checkButtonPress}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{checkButtonPress()}{checkButtonPress()}}
+{\footnotesize\ttfamily int check\+Button\+Press (\begin{DoxyParamCaption}\item[{int}]{floor,  }\item[{int}]{button }\end{DoxyParamCaption})}
+
+
+
+Checks if a specific button is pressed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em floor} & Floor the button is on. \\
+\hline
+\mbox{\texttt{ in}}  & {\em button} & Button type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the button is pressed, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_ace1409f248a68d67185e7b5cb1a98247}\label{elevator_8h_ace1409f248a68d67185e7b5cb1a98247}} 
+\index{elevator.h@{elevator.h}!getFloorSensor@{getFloorSensor}}
+\index{getFloorSensor@{getFloorSensor}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{getFloorSensor()}{getFloorSensor()}}
+{\footnotesize\ttfamily int get\+Floor\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gives current floor sensor data. 
+
+\begin{DoxyReturn}{Returns}
+-\/1 if inbetween floors, and a floor integer between 0 and 3 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 71 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_a23512b2e0d8e12292f667e64a0b5ce84}\label{elevator_8h_a23512b2e0d8e12292f667e64a0b5ce84}} 
+\index{elevator.h@{elevator.h}!getObstruction@{getObstruction}}
+\index{getObstruction@{getObstruction}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{getObstruction()}{getObstruction()}}
+{\footnotesize\ttfamily int get\+Obstruction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gives current obstruction sensor data. 
+
+\begin{DoxyReturn}{Returns}
+1 if obstruction switch is active, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_ae5678b01921ffc7ff5a5a223ba8f1a75}\label{elevator_8h_ae5678b01921ffc7ff5a5a223ba8f1a75}} 
+\index{elevator.h@{elevator.h}!getStopButton@{getStopButton}}
+\index{getStopButton@{getStopButton}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{getStopButton()}{getStopButton()}}
+{\footnotesize\ttfamily int get\+Stop\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gives current stop button sensor data. 
+
+\begin{DoxyReturn}{Returns}
+1 if stop button is active, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 75 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_abd50573210a8ea486d9c9d19f4a11d24}\label{elevator_8h_abd50573210a8ea486d9c9d19f4a11d24}} 
+\index{elevator.h@{elevator.h}!initElevator@{initElevator}}
+\index{initElevator@{initElevator}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{initElevator()}{initElevator()}}
+{\footnotesize\ttfamily void init\+Elevator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the elevator status. 
+
+Sets state to U\+N\+D\+E\+F\+I\+N\+ED, sets requests and floor to -\/1, and motor\+Direction to stop. 
+
+Definition at line 4 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_a850c1731b7d7b208d12b571314c734cf}\label{elevator_8h_a850c1731b7d7b208d12b571314c734cf}} 
+\index{elevator.h@{elevator.h}!moveElevator@{moveElevator}}
+\index{moveElevator@{moveElevator}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{moveElevator()}{moveElevator()}}
+{\footnotesize\ttfamily void move\+Elevator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{elevio_8h_ab0dd3595d7049b92115a766f0ea6f7e0}{Motor\+Direction}}}]{dir }\end{DoxyParamCaption})}
+
+
+
+Moves elevator in direction specified by {\ttfamily dir}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir} & Motor\+Direction to set the elevator to. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 27 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_ace7629cf90a9dac3be245826a6ec0dbd}\label{elevator_8h_ace7629cf90a9dac3be245826a6ec0dbd}} 
+\index{elevator.h@{elevator.h}!pollFloorSensor@{pollFloorSensor}}
+\index{pollFloorSensor@{pollFloorSensor}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{pollFloorSensor()}{pollFloorSensor()}}
+{\footnotesize\ttfamily void poll\+Floor\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Polls the floor sensor. 
+
+Checks the floor sensor and updates the elevator floor and the floor lamp when there is a change. 
+
+Definition at line 43 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_a60905bab15ecea03abb13590657e43cb}\label{elevator_8h_a60905bab15ecea03abb13590657e43cb}} 
+\index{elevator.h@{elevator.h}!pollObstructionButton@{pollObstructionButton}}
+\index{pollObstructionButton@{pollObstructionButton}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{pollObstructionButton()}{pollObstructionButton()}}
+{\footnotesize\ttfamily void poll\+Obstruction\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Polls obstruction switch. 
+
+Checks the obstruction switch and updates the elevator state when there is a change.
+
+Obstruction switch effect the system only when the elevator state is in D\+O\+OR O\+P\+EN when switched. 
+
+Definition at line 62 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_a9f4421076e75c645e357fbfce8b41b71}\label{elevator_8h_a9f4421076e75c645e357fbfce8b41b71}} 
+\index{elevator.h@{elevator.h}!pollStopButton@{pollStopButton}}
+\index{pollStopButton@{pollStopButton}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{pollStopButton()}{pollStopButton()}}
+{\footnotesize\ttfamily void poll\+Stop\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Polls stop button. 
+
+Checks the stop button sensor and updates the elevator state and the stop button lamp when there is a change. 
+
+Definition at line 51 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_a65e30a52c2bb7308c994cbe44ef9bf31}\label{elevator_8h_a65e30a52c2bb7308c994cbe44ef9bf31}} 
+\index{elevator.h@{elevator.h}!setButtonLamp@{setButtonLamp}}
+\index{setButtonLamp@{setButtonLamp}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{setButtonLamp()}{setButtonLamp()}}
+{\footnotesize\ttfamily void set\+Button\+Lamp (\begin{DoxyParamCaption}\item[{int}]{floor,  }\item[{int}]{button,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Sets the button button lamp on or off depending on the value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em floor} & Floor the button is on. \\
+\hline
+\mbox{\texttt{ in}}  & {\em button} & Button type. \\
+\hline
+\mbox{\texttt{ in}}  & {\em value} & 1 to turn on, 0 to turn off. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 93 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_acb1b2fd68090f22b04a85f668322afb4}\label{elevator_8h_acb1b2fd68090f22b04a85f668322afb4}} 
+\index{elevator.h@{elevator.h}!setStopLamp@{setStopLamp}}
+\index{setStopLamp@{setStopLamp}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{setStopLamp()}{setStopLamp()}}
+{\footnotesize\ttfamily void set\+Stop\+Lamp (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Sets the stop button lamp on or off depending on the value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & 1 to turn on, 0 to turn off. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 89 of file elevator.\+c.
+
+\mbox{\Hypertarget{elevator_8h_ada8affbd0d3c1d3295a376ddc7624ce6}\label{elevator_8h_ada8affbd0d3c1d3295a376ddc7624ce6}} 
+\index{elevator.h@{elevator.h}!turnOnFloorLamp@{turnOnFloorLamp}}
+\index{turnOnFloorLamp@{turnOnFloorLamp}!elevator.h@{elevator.h}}
+\doxysubsubsection{\texorpdfstring{turnOnFloorLamp()}{turnOnFloorLamp()}}
+{\footnotesize\ttfamily void turn\+On\+Floor\+Lamp (\begin{DoxyParamCaption}\item[{int}]{Floor }\end{DoxyParamCaption})}
+
+
+
+Turns on the floor lamp. 
+
+Only one floor lamp is on at any given time. Therefore, when a new floor lamp is turned on, the other floor lamp is turned off.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em floor} & Floor lamp to turn on. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file elevator.\+c.
+

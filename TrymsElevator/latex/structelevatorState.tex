@@ -1,0 +1,89 @@
+\hypertarget{structelevatorState}{}\doxysection{elevator\+State Struct Reference}
+\label{structelevatorState}\index{elevatorState@{elevatorState}}
+
+
+A struct containing real time information on the elevator.  
+
+
+
+
+{\ttfamily \#include $<$elevator.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90}{state}} \mbox{\hyperlink{structelevatorState_ade2203ccaf6d25665a20e104b30c54d0}{State}}
+\item 
+int \mbox{\hyperlink{structelevatorState_a0df68b52439a6ba3c1e86b7f62ad7447}{Floor}}
+\item 
+\mbox{\hyperlink{elevio_8h_ab0dd3595d7049b92115a766f0ea6f7e0}{Motor\+Direction}} \mbox{\hyperlink{structelevatorState_acea398023d3b7f3d176f78fd586d54e8}{Dir}} \mbox{[}2\mbox{]}
+\item 
+int \mbox{\hyperlink{structelevatorState_a18e1e83f157881813280a5c5f31edc74}{current\+Floor\+Request}}
+\item 
+int \mbox{\hyperlink{structelevatorState_ad1003bb9b49544ee03c22c0a343c703a}{request\+In\+D\+Ir}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A struct containing real time information on the elevator. 
+
+Definition at line 38 of file elevator.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structelevatorState_a18e1e83f157881813280a5c5f31edc74}\label{structelevatorState_a18e1e83f157881813280a5c5f31edc74}} 
+\index{elevatorState@{elevatorState}!currentFloorRequest@{currentFloorRequest}}
+\index{currentFloorRequest@{currentFloorRequest}!elevatorState@{elevatorState}}
+\doxysubsubsection{\texorpdfstring{currentFloorRequest}{currentFloorRequest}}
+{\footnotesize\ttfamily int elevator\+State\+::current\+Floor\+Request}
+
+Integer holding the current request. 
+
+Definition at line 46 of file elevator.\+h.
+
+\mbox{\Hypertarget{structelevatorState_acea398023d3b7f3d176f78fd586d54e8}\label{structelevatorState_acea398023d3b7f3d176f78fd586d54e8}} 
+\index{elevatorState@{elevatorState}!Dir@{Dir}}
+\index{Dir@{Dir}!elevatorState@{elevatorState}}
+\doxysubsubsection{\texorpdfstring{Dir}{Dir}}
+{\footnotesize\ttfamily \mbox{\hyperlink{elevio_8h_ab0dd3595d7049b92115a766f0ea6f7e0}{Motor\+Direction}} elevator\+State\+::\+Dir\mbox{[}2\mbox{]}}
+
+Array storing the Motor\+Direction of the elevator, and also the last Motor\+Direction when stop\+Button is pressed. 
+
+Definition at line 44 of file elevator.\+h.
+
+\mbox{\Hypertarget{structelevatorState_a0df68b52439a6ba3c1e86b7f62ad7447}\label{structelevatorState_a0df68b52439a6ba3c1e86b7f62ad7447}} 
+\index{elevatorState@{elevatorState}!Floor@{Floor}}
+\index{Floor@{Floor}!elevatorState@{elevatorState}}
+\doxysubsubsection{\texorpdfstring{Floor}{Floor}}
+{\footnotesize\ttfamily int elevator\+State\+::\+Floor}
+
+Integer storing the elevator\textquotesingle{}s current floor. 
+
+Definition at line 42 of file elevator.\+h.
+
+\mbox{\Hypertarget{structelevatorState_ad1003bb9b49544ee03c22c0a343c703a}\label{structelevatorState_ad1003bb9b49544ee03c22c0a343c703a}} 
+\index{elevatorState@{elevatorState}!requestInDIr@{requestInDIr}}
+\index{requestInDIr@{requestInDIr}!elevatorState@{elevatorState}}
+\doxysubsubsection{\texorpdfstring{requestInDIr}{requestInDIr}}
+{\footnotesize\ttfamily int elevator\+State\+::request\+In\+D\+Ir}
+
+Integer storing information on requests on next floor in the direction of travel. 
+
+Definition at line 48 of file elevator.\+h.
+
+\mbox{\Hypertarget{structelevatorState_ade2203ccaf6d25665a20e104b30c54d0}\label{structelevatorState_ade2203ccaf6d25665a20e104b30c54d0}} 
+\index{elevatorState@{elevatorState}!State@{State}}
+\index{State@{State}!elevatorState@{elevatorState}}
+\doxysubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily \mbox{\hyperlink{elevator_8h_adc6e5733fc3c22f0a7b2914188c49c90}{state}} elevator\+State\+::\+State}
+
+Variable keeping track of the elevator\textquotesingle{}s current state. 
+
+Definition at line 40 of file elevator.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\mbox{\hyperlink{elevator_8h}{elevator.\+h}}\end{DoxyCompactItemize}

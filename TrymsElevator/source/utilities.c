@@ -29,6 +29,3 @@ int requestIsAbove(){
         return 0;
     }
 }
-
-
-

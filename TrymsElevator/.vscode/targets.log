@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
- 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Mar  1 08:46:20 2022
+# Make data base, printed on Mon Mar 14 09:32:17 2022
 
 # Variables
 
@@ -47,7 +45,9 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:49740
+JOURNAL_STREAM = 8:42939
+# makefile (from 'Makefile', line 5)
+CFLAGS = -Wall -g -std=gnu11 -fsanitize=address
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
@@ -58,6 +58,8 @@ MAKEFILE_LIST :=  Makefile
 IM_CONFIG_PHASE = 1
 # environment
 USERNAME = trym
+# makefile (from 'Makefile', line 13)
+SOURCES :=  elevio.c  requestManager.c  elevator.c  stateMachine.c  timer.c  utilities.c  main.c
 # environment
 MAKELEVEL := 0
 # environment
@@ -72,10 +74,12 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 VSCODE_VERBOSE_LOGGING = true
 # environment
 _ = /usr/bin/code
+# 'override' directive
+.SHELLSTATUS := 0
 # environment
 ROS_PACKAGE_PATH = /opt/ros/noetic/share
 # environment
-MANAGERPID = 2063
+MANAGERPID = 2149
 # environment
 ROS_PYTHON_VERSION = 3
 # environment
@@ -93,7 +97,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/trym-XPS-13-9310:@/tmp/.ICE-unix/2295,unix/trym-XPS-13-9310:/tmp/.ICE-unix/2295
+SESSION_MANAGER = local/trym-XPS-13-9310:@/tmp/.ICE-unix/2378,unix/trym-XPS-13-9310:/tmp/.ICE-unix/2378
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -102,11 +106,12 @@ ROS_ROOT = /opt/ros/noetic/share/ros
 XDG_MENU_PREFIX = gnome-
 # environment
 VSCODE_LOG_STACK = false
- 
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=454b6872-eca0-4599-91f6-f234b89d2054&iid=454b6872-eca0-4599-91f6-f234b89d2054&sid=454b6872-eca0-4599-91f6-f234b89d2054","uploadToServer":true}
 # environment
-INVOCATION_ID = b7b476a8f1424bf58227f98d1e9b0362
+INVOCATION_ID = b44e29d051624fa4be5717968fabb23e
+# makefile (from 'Makefile', line 6)
+LDFLAGS = -fsanitize=address
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -125,16 +130,16 @@ DISPLAY = :0
 VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /home/trym/Documents/TilDat/ElevatorLab/TTK4235---Heislab-Gruppe-64-/TrymsElevator
+# makefile (from 'Makefile', line 11)
+OBJECTDIR = build
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2251
+SSH_AGENT_PID = 2323
 # environment
 PKG_CONFIG_PATH = /opt/ros/noetic/lib/pkgconfig
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
-# makefile (from 'Makefile', line 4)
-CFALGS := -O0 -g3
 # environment
 GTK_MODULES = gail:atk-bridge
 # environment
@@ -175,22 +180,18 @@ MAKECMDGOALS := all
 QT_IM_MODULE = ibus
 # environment
 SHLVL = 1
-# makefile (from 'Makefile', line 3)
-CC := gcc
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-61542378-34a1-4b78-96dc-f0cdbf821c8d.sock
-# makefile (from 'Makefile', line 6)
-SOURCE = main.c stateMachine.c requestManager.c elevator.c timer.c elevio.c 
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-edfe2db9-8617-4485-9a85-33db746e4587.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
 USER = trym
 # environment
 LC_MONETARY = nb_NO.UTF-8
-# makefile (from 'Makefile', line 1)
-.DEFAULT_GOAL := main
+# makefile
+.DEFAULT_GOAL := all
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # environment
@@ -202,7 +203,7 @@ LC_TELEPHONE = nb_NO.UTF-8
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/trym
+OLDPWD = /home/trym/Documents/TilDat/ElevatorLab/TTK4235---Heislab-Gruppe-64-
 # default
 .VARIABLES := 
 # automatic
@@ -233,14 +234,20 @@ LC_IDENTIFICATION = nb_NO.UTF-8
 QT_ACCESSIBILITY = 1
 # environment
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
+# makefile (from 'Makefile', line 4)
+COMPILER = clang
 # default
 MAKEFILES := 
 # environment
 LC_NUMERIC = nb_NO.UTF-8
 # automatic
 <F = $(notdir $<)
+# makefile (from 'Makefile', line 2)
+EXECUTABLE = elevator
 # environment
 ELECTRON_RUN_AS_NODE = 1
+# makefile (from 'Makefile', line 7)
+EXCLUDE = '*test*'
 # environment
 LC_MEASUREMENT = nb_NO.UTF-8
 # environment
@@ -250,11 +257,11 @@ LC_ALL = C
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/6ffddff4_0a9f_49dd_b24b_825bf3291e31
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/f133868f_cc81_4925_aae9_2d2c9882bc97
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.142
+GNOME_TERMINAL_SERVICE = :1.122
 # default
 SUFFIXES := 
 # environment
@@ -267,81 +274,140 @@ WINDOWPATH = 2
 GJS_DEBUG_OUTPUT = stderr
 # default
 .RECIPEPREFIX := 
+# makefile (from 'Makefile', line 14)
+OBJECTS = $(addprefix $(OBJECTDIR)/, $(SOURCES:.c=.o))
 # environment
 LC_ADDRESS = nb_NO.UTF-8
 # environment
 LANG = C
 # environment
 TERM = xterm-256color
+# makefile (from 'Makefile', line 10)
+SOURCEDIR = source
 # environment
-VSCODE_PID = 10439
+VSCODE_PID = 6979
 # variable set hash-table stats:
-# Load=131/1024=13%, Rehash=0, Collisions=21/157=13%
+# Load=138/1024=13%, Rehash=0, Collisions=28/183=15%
 
+ 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
 
 # Directories
 
-# . (device 66311, inode 6283403): 23 files, no impossibilities.
+# source (device 66311, inode 6283488): 4 files, no impossibilities so far.
+# . (device 66311, inode 6283403): 10 files, no impossibilities.
 
-# 23 files, no impossibilities in 1 directories.
+# 14 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
-# No implicit rules.
+build/%.o: source/%.c
+#  recipe to execute (from 'Makefile', line 30):
+	@mkdir -p $(@D)
+	$(COMPILER) -o $@ -c $(CFLAGS) $<
+	
+
+# 1 implicit rules, 0 (0.0%) terminal.
 
 # Files
 
 # Not a target:
-requestManager.c:
+build/main.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-all:
+all: elevator
+#  Phony target (prerequisite of .PHONY).
 #  Command line target.
-#  Implicit rule search has been done.
+#  Implicit rule search has not been done.
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
 
-.PHONY: clean
+.PHONY: all rebuild clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-elevio.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-main.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-timer.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-Makefile:
+build/requestManager.o: source/requestManager.c
 #  Implicit rule search has been done.
-#  Last modified 2022-03-01 08:46:04.068825967
+#  Implicit/static pattern stem: 'requestManager'
+#  Last modified 2022-03-07 20:19:24.48670489
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build/requestManager.o
+# automatic
+# % := 
+# automatic
+# * := requestManager
+# automatic
+# + := source/requestManager.c
+# automatic
+# | := 
+# automatic
+# < := source/requestManager.c
+# automatic
+# ^ := source/requestManager.c
+# automatic
+# ? := source/requestManager.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/17=6%
+#  recipe to execute (from 'Makefile', line 30):
+	@mkdir -p $(@D)
+	$(COMPILER) -o $@ -c $(CFLAGS) $<
+	
+
+# Not a target:
+source/requestManager.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-08 09:13:00.315132507
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
-elevator.c:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-01 08:52:00.788385157
+#  File has been updated.
+#  Successfully updated.
+
+rebuild: clean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 19):
+	
+
+# Not a target:
+build/utilities.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+build/elevio.o: source/elevio.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'elevio'
+#  Last modified 2022-03-01 08:52:05.692324124
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 30):
+	@mkdir -p $(@D)
+	$(COMPILER) -o $@ -c $(CFLAGS) $<
+	
+
+# Not a target:
+source/elevio.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-01 08:50:48.918
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -354,36 +420,52 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 11):
-	rm -f *.o
+#  recipe to execute (from 'Makefile', line 21):
+	rm -f $(EXECUTABLE)
+	rm -rf $(OBJECTDIR)
 
 # Not a target:
-stateMachine.c:
+build/elevator.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-main: main.c stateMachine.c requestManager.c elevator.c timer.c elevio.c
+# Not a target:
+build/timer.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 14):
-	$(CC) -o $@ $(SOURCE) $(CFLAGS)
+
+elevator: build/elevio.o build/requestManager.o build/elevator.o build/stateMachine.o build/timer.o build/utilities.o build/main.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-03-07 20:33:49.573918037
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+#  recipe to execute (from 'Makefile', line 26):
+	$(COMPILER) $^ -o $@ $(LDFLAGS)
+
+# Not a target:
+build/stateMachine.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
-# Load=13/1024=1%, Rehash=0, Collisions=0/31=0%
+# Load=17/1024=2%, Rehash=0, Collisions=0/49=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 31 / storage = 311 B / avg = 10 B
-# current buf: size = 8162 B / used = 311 B / count = 31 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 35 / storage = 388 B / avg = 11 B
+# current buf: size = 8162 B / used = 388 B / count = 35 / avg = 11 B
 
-# strcache performance: lookups = 45 / hit rate = 31%
+# strcache performance: lookups = 55 / hit rate = 36%
 # hash-table stats:
-# Load=31/8192=0%, Rehash=0, Collisions=1/45=2%
-# Finished Make data base on Tue Mar  1 08:46:20 2022
+# Load=35/8192=0%, Rehash=0, Collisions=1/55=2%
+# Finished Make data base on Mon Mar 14 09:32:17 2022
 
  

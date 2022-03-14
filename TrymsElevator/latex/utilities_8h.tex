@@ -1,0 +1,89 @@
+\hypertarget{utilities_8h}{}\doxysection{source/utilities.h File Reference}
+\label{utilities_8h}\index{source/utilities.h@{source/utilities.h}}
+
+
+A utilities module defining useful functions for cleaner and more readable code.  
+
+
+{\ttfamily \#include \char`\"{}elevator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
+Include dependency graph for utilities.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{utilities_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{utilities_8h_a60e913a93db7a890e6226d1f96945031}{floor\+Reached}} ()
+\begin{DoxyCompactList}\small\item\em Executing specific steps when a floor is reached. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utilities_8h_a21cb39520c543b312c70924adf76de97}{check\+If\+On\+Floor}} (int floor)
+\begin{DoxyCompactList}\small\item\em Checks if the input floor is equal to the elevator floor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utilities_8h_a2e49a7a45be4b1b9239f1ef076bceeb2}{request\+Is\+Above}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the elevators current request is above or below the elevator floor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A utilities module defining useful functions for cleaner and more readable code. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utilities_8h_a21cb39520c543b312c70924adf76de97}\label{utilities_8h_a21cb39520c543b312c70924adf76de97}} 
+\index{utilities.h@{utilities.h}!checkIfOnFloor@{checkIfOnFloor}}
+\index{checkIfOnFloor@{checkIfOnFloor}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{checkIfOnFloor()}{checkIfOnFloor()}}
+{\footnotesize\ttfamily int check\+If\+On\+Floor (\begin{DoxyParamCaption}\item[{int}]{floor }\end{DoxyParamCaption})}
+
+
+
+Checks if the input floor is equal to the elevator floor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Floor} & Integer between 0 and 3.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the floor\textquotesingle{}s match, otherwise 0 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file utilities.\+c.
+
+\mbox{\Hypertarget{utilities_8h_a60e913a93db7a890e6226d1f96945031}\label{utilities_8h_a60e913a93db7a890e6226d1f96945031}} 
+\index{utilities.h@{utilities.h}!floorReached@{floorReached}}
+\index{floorReached@{floorReached}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{floorReached()}{floorReached()}}
+{\footnotesize\ttfamily void floor\+Reached (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Executing specific steps when a floor is reached. 
+
+It stops the elevator, opens the door, delete the requests on that floor and starts a timer. \mbox{\Hypertarget{utilities_8h_a2e49a7a45be4b1b9239f1ef076bceeb2}\label{utilities_8h_a2e49a7a45be4b1b9239f1ef076bceeb2}} 
+\index{utilities.h@{utilities.h}!requestIsAbove@{requestIsAbove}}
+\index{requestIsAbove@{requestIsAbove}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{requestIsAbove()}{requestIsAbove()}}
+{\footnotesize\ttfamily int request\+Is\+Above (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the elevators current request is above or below the elevator floor. 
+
+\begin{DoxyReturn}{Returns}
+1 if the requested floor is greater than the elevator floor, otherwise 0 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file utilities.\+c.
+

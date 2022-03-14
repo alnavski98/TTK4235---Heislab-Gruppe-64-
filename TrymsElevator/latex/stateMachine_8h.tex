@@ -1,0 +1,175 @@
+\hypertarget{stateMachine_8h}{}\doxysection{source/state\+Machine.h File Reference}
+\label{stateMachine_8h}\index{source/stateMachine.h@{source/stateMachine.h}}
+
+
+A module containing the finite state machine.  
+
+
+{\ttfamily \#include \char`\"{}utilities.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}elevator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}request\+Manager.\+h\char`\"{}}\newline
+Include dependency graph for state\+Machine.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{stateMachine_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{stateMachine_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{stateMachine_8h_a0dd87ef0a96faffcd7f0e711eb1affe3}{state\+U\+N\+D\+E\+F\+I\+N\+ED}} ()
+\begin{DoxyCompactList}\small\item\em Functionality to execute when in the state U\+N\+D\+E\+F\+I\+N\+ED. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stateMachine_8h_aefc0b1a8d969eda6e1605107cf8d1b86}{state\+I\+D\+LE}} ()
+\begin{DoxyCompactList}\small\item\em Functionality to execute when in the state I\+D\+LE. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stateMachine_8h_ad03ca821697cd46b31d6d86da9bcd249}{state\+I\+D\+L\+E\+I\+N\+B\+E\+T\+W\+E\+EN}} ()
+\begin{DoxyCompactList}\small\item\em Functionality to execute when in the state I\+D\+LE I\+N\+B\+E\+T\+W\+E\+EN. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stateMachine_8h_add9643e38bda2c2884abfffdaa3098c3}{state\+M\+O\+V\+I\+NG}} ()
+\begin{DoxyCompactList}\small\item\em Functionality to execute when in the state M\+O\+V\+I\+NG. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stateMachine_8h_ae1f1d8f49712a1a0cac685e78d853aae}{state\+D\+O\+O\+R\+O\+P\+EN}} ()
+\begin{DoxyCompactList}\small\item\em Functionality to execute when in the state D\+O\+OR O\+P\+EN. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stateMachine_8h_a971b13e877b02f710d34bd82f146fe00}{state\+O\+B\+S\+T\+R\+U\+C\+T\+I\+ON}} ()
+\begin{DoxyCompactList}\small\item\em Functionality to execute when in the state O\+B\+S\+T\+R\+U\+C\+T\+I\+ON. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stateMachine_8h_a0257d1c0a04250d4eccaff7dc727b45e}{state\+S\+T\+O\+P\+B\+U\+T\+T\+ON}} ()
+\begin{DoxyCompactList}\small\item\em Functionality to execute when in the state S\+T\+OP B\+U\+T\+T\+ON. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stateMachine_8h_a5ea7d8384f616fac5b77db22d610fa5d}{state\+Machine}} ()
+\begin{DoxyCompactList}\small\item\em The state machine executing the main functionality of the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A module containing the finite state machine. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stateMachine_8h_ae1f1d8f49712a1a0cac685e78d853aae}\label{stateMachine_8h_ae1f1d8f49712a1a0cac685e78d853aae}} 
+\index{stateMachine.h@{stateMachine.h}!stateDOOROPEN@{stateDOOROPEN}}
+\index{stateDOOROPEN@{stateDOOROPEN}!stateMachine.h@{stateMachine.h}}
+\doxysubsubsection{\texorpdfstring{stateDOOROPEN()}{stateDOOROPEN()}}
+{\footnotesize\ttfamily void state\+D\+O\+O\+R\+O\+P\+EN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Functionality to execute when in the state D\+O\+OR O\+P\+EN. 
+
+Keeps the door open for 3 seconds if the obstruction switch is not turned on. 
+
+Definition at line 102 of file state\+Machine.\+c.
+
+\mbox{\Hypertarget{stateMachine_8h_aefc0b1a8d969eda6e1605107cf8d1b86}\label{stateMachine_8h_aefc0b1a8d969eda6e1605107cf8d1b86}} 
+\index{stateMachine.h@{stateMachine.h}!stateIDLE@{stateIDLE}}
+\index{stateIDLE@{stateIDLE}!stateMachine.h@{stateMachine.h}}
+\doxysubsubsection{\texorpdfstring{stateIDLE()}{stateIDLE()}}
+{\footnotesize\ttfamily void state\+I\+D\+LE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Functionality to execute when in the state I\+D\+LE. 
+
+The function checks for new current requests.
+
+When there is a new request it first checks if it is on the elevator floor. If not, it moves the elevator in the correct direction. 
+
+Definition at line 23 of file state\+Machine.\+c.
+
+\mbox{\Hypertarget{stateMachine_8h_ad03ca821697cd46b31d6d86da9bcd249}\label{stateMachine_8h_ad03ca821697cd46b31d6d86da9bcd249}} 
+\index{stateMachine.h@{stateMachine.h}!stateIDLEINBETWEEN@{stateIDLEINBETWEEN}}
+\index{stateIDLEINBETWEEN@{stateIDLEINBETWEEN}!stateMachine.h@{stateMachine.h}}
+\doxysubsubsection{\texorpdfstring{stateIDLEINBETWEEN()}{stateIDLEINBETWEEN()}}
+{\footnotesize\ttfamily void state\+I\+D\+L\+E\+I\+N\+B\+E\+T\+W\+E\+EN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Functionality to execute when in the state I\+D\+LE I\+N\+B\+E\+T\+W\+E\+EN. 
+
+This function is similar to state\+I\+D\+LE.
+
+Only difference is when a request is received on the last elevator floor it moves it correctly to that floor, instead of opening door in between floors. 
+
+Definition at line 46 of file state\+Machine.\+c.
+
+\mbox{\Hypertarget{stateMachine_8h_a5ea7d8384f616fac5b77db22d610fa5d}\label{stateMachine_8h_a5ea7d8384f616fac5b77db22d610fa5d}} 
+\index{stateMachine.h@{stateMachine.h}!stateMachine@{stateMachine}}
+\index{stateMachine@{stateMachine}!stateMachine.h@{stateMachine.h}}
+\doxysubsubsection{\texorpdfstring{stateMachine()}{stateMachine()}}
+{\footnotesize\ttfamily void state\+Machine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The state machine executing the main functionality of the program. 
+
+It Initiates connection to server, and also initate the elevator and request manager.
+
+Runs correct functionality based on the state of the elevator using a switch. ~\newline
+ 
+
+Definition at line 168 of file state\+Machine.\+c.
+
+\mbox{\Hypertarget{stateMachine_8h_add9643e38bda2c2884abfffdaa3098c3}\label{stateMachine_8h_add9643e38bda2c2884abfffdaa3098c3}} 
+\index{stateMachine.h@{stateMachine.h}!stateMOVING@{stateMOVING}}
+\index{stateMOVING@{stateMOVING}!stateMachine.h@{stateMachine.h}}
+\doxysubsubsection{\texorpdfstring{stateMOVING()}{stateMOVING()}}
+{\footnotesize\ttfamily void state\+M\+O\+V\+I\+NG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Functionality to execute when in the state M\+O\+V\+I\+NG. 
+
+~Checks if the requested floor or request in direction is reached. 
+
+Definition at line 79 of file state\+Machine.\+c.
+
+\mbox{\Hypertarget{stateMachine_8h_a971b13e877b02f710d34bd82f146fe00}\label{stateMachine_8h_a971b13e877b02f710d34bd82f146fe00}} 
+\index{stateMachine.h@{stateMachine.h}!stateOBSTRUCTION@{stateOBSTRUCTION}}
+\index{stateOBSTRUCTION@{stateOBSTRUCTION}!stateMachine.h@{stateMachine.h}}
+\doxysubsubsection{\texorpdfstring{stateOBSTRUCTION()}{stateOBSTRUCTION()}}
+{\footnotesize\ttfamily void state\+O\+B\+S\+T\+R\+U\+C\+T\+I\+ON (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Functionality to execute when in the state O\+B\+S\+T\+R\+U\+C\+T\+I\+ON. 
+
+Holds the door open until the switch is turned off. 
+
+Definition at line 121 of file state\+Machine.\+c.
+
+\mbox{\Hypertarget{stateMachine_8h_a0257d1c0a04250d4eccaff7dc727b45e}\label{stateMachine_8h_a0257d1c0a04250d4eccaff7dc727b45e}} 
+\index{stateMachine.h@{stateMachine.h}!stateSTOPBUTTON@{stateSTOPBUTTON}}
+\index{stateSTOPBUTTON@{stateSTOPBUTTON}!stateMachine.h@{stateMachine.h}}
+\doxysubsubsection{\texorpdfstring{stateSTOPBUTTON()}{stateSTOPBUTTON()}}
+{\footnotesize\ttfamily void state\+S\+T\+O\+P\+B\+U\+T\+T\+ON (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Functionality to execute when in the state S\+T\+OP B\+U\+T\+T\+ON. 
+
+Stays in the stop button state until the button is unpressed. Nothing else is executing when in this state.
+
+All requests are deleted. Door is opened if on a floor. 
+
+Definition at line 133 of file state\+Machine.\+c.
+
+\mbox{\Hypertarget{stateMachine_8h_a0dd87ef0a96faffcd7f0e711eb1affe3}\label{stateMachine_8h_a0dd87ef0a96faffcd7f0e711eb1affe3}} 
+\index{stateMachine.h@{stateMachine.h}!stateUNDEFINED@{stateUNDEFINED}}
+\index{stateUNDEFINED@{stateUNDEFINED}!stateMachine.h@{stateMachine.h}}
+\doxysubsubsection{\texorpdfstring{stateUNDEFINED()}{stateUNDEFINED()}}
+{\footnotesize\ttfamily void state\+U\+N\+D\+E\+F\+I\+N\+ED (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Functionality to execute when in the state U\+N\+D\+E\+F\+I\+N\+ED. 
+
+Executed only ones at start up of elevator.
+
+If the elevator is in between floors it will move down until it finds a defined floor. ~\newline
+ 
+
+Definition at line 3 of file state\+Machine.\+c.
+

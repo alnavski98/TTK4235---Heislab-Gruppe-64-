@@ -1,0 +1,136 @@
+\hypertarget{requestManager_8h}{}\doxysection{source/request\+Manager.h File Reference}
+\label{requestManager_8h}\index{source/requestManager.h@{source/requestManager.h}}
+
+
+A module defining the request manager.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}elevator.\+h\char`\"{}}\newline
+Include dependency graph for request\+Manager.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{requestManager_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{requestManager_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structRequest}{Request}}
+\begin{DoxyCompactList}\small\item\em A struct storing information on the request\+Manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{requestManager_8h_a0ec8e7497def94c328a41dc9145822ef}{init\+Request\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the request\+Manager. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{requestManager_8h_a535f9bf2e62987439460d7e8ea97a779}\label{requestManager_8h_a535f9bf2e62987439460d7e8ea97a779}} 
+void \mbox{\hyperlink{requestManager_8h_a535f9bf2e62987439460d7e8ea97a779}{print\+Request\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Displays the database and number of requests. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{requestManager_8h_ad618614b6651ea2efb6228e95086eb08}\label{requestManager_8h_ad618614b6651ea2efb6228e95086eb08}} 
+void \mbox{\hyperlink{requestManager_8h_ad618614b6651ea2efb6228e95086eb08}{poll\+Elevator\+Buttons}} ()
+\begin{DoxyCompactList}\small\item\em Updates the request database when a button is pressed and lights the corresponding lamp. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{requestManager_8h_acaa408c01f02abfe17448077c69b0c6e}{get\+New\+Request}} ()
+\begin{DoxyCompactList}\small\item\em Provides the next request to the elevator based on logic. The request is represented by the floor given as an int. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{requestManager_8h_a874804ad302d371243db6c227933117e}{check\+Request\+In\+Direction}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the next floor has a request, if it is not the requested floor, and informs the elevator only if the request is in the direction of travel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{requestManager_8h_ad329c9623655be281a8be8aa3b102720}{delete\+Requests\+On\+Floor}} ()
+\begin{DoxyCompactList}\small\item\em Deletes all request on the elevators floor from the database, and turns of the corresponding button lamps. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{requestManager_8h_aef0bc40feb1d535b8cc8283f2a2b41ee}{delete\+All\+Requests}} ()
+\begin{DoxyCompactList}\small\item\em Deletes all requests in the request database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{requestManager_8h_a4fc268752860c5ed0059584e7c4eb7ab}\label{requestManager_8h_a4fc268752860c5ed0059584e7c4eb7ab}} 
+\mbox{\hyperlink{structRequest}{Request}} {\bfseries request\+Manager}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A module defining the request manager. 
+
+Storing the button presses, processing of the request and modifies the database. ~\newline
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{requestManager_8h_a874804ad302d371243db6c227933117e}\label{requestManager_8h_a874804ad302d371243db6c227933117e}} 
+\index{requestManager.h@{requestManager.h}!checkRequestInDirection@{checkRequestInDirection}}
+\index{checkRequestInDirection@{checkRequestInDirection}!requestManager.h@{requestManager.h}}
+\doxysubsubsection{\texorpdfstring{checkRequestInDirection()}{checkRequestInDirection()}}
+{\footnotesize\ttfamily void check\+Request\+In\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the next floor has a request, if it is not the requested floor, and informs the elevator only if the request is in the direction of travel. 
+
+If the elevator moves in the upwards direction, there is a floor between the elevator floor and the requested floor, and there is a cab or hall up request on that floor, it gives the information to the elevator. 
+
+Definition at line 88 of file request\+Manager.\+c.
+
+\mbox{\Hypertarget{requestManager_8h_aef0bc40feb1d535b8cc8283f2a2b41ee}\label{requestManager_8h_aef0bc40feb1d535b8cc8283f2a2b41ee}} 
+\index{requestManager.h@{requestManager.h}!deleteAllRequests@{deleteAllRequests}}
+\index{deleteAllRequests@{deleteAllRequests}!requestManager.h@{requestManager.h}}
+\doxysubsubsection{\texorpdfstring{deleteAllRequests()}{deleteAllRequests()}}
+{\footnotesize\ttfamily void delete\+All\+Requests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deletes all requests in the request database. 
+
+Sets the number of requests and all the elements in the database equal to 0, and turns off all button lights. 
+
+Definition at line 125 of file request\+Manager.\+c.
+
+\mbox{\Hypertarget{requestManager_8h_ad329c9623655be281a8be8aa3b102720}\label{requestManager_8h_ad329c9623655be281a8be8aa3b102720}} 
+\index{requestManager.h@{requestManager.h}!deleteRequestsOnFloor@{deleteRequestsOnFloor}}
+\index{deleteRequestsOnFloor@{deleteRequestsOnFloor}!requestManager.h@{requestManager.h}}
+\doxysubsubsection{\texorpdfstring{deleteRequestsOnFloor()}{deleteRequestsOnFloor()}}
+{\footnotesize\ttfamily void delete\+Requests\+On\+Floor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deletes all request on the elevators floor from the database, and turns of the corresponding button lamps. 
+
+\mbox{\hyperlink{structRequest}{Request}} is deleted by setting the elements equal to zero in the request database. 
+
+Definition at line 113 of file request\+Manager.\+c.
+
+\mbox{\Hypertarget{requestManager_8h_acaa408c01f02abfe17448077c69b0c6e}\label{requestManager_8h_acaa408c01f02abfe17448077c69b0c6e}} 
+\index{requestManager.h@{requestManager.h}!getNewRequest@{getNewRequest}}
+\index{getNewRequest@{getNewRequest}!requestManager.h@{requestManager.h}}
+\doxysubsubsection{\texorpdfstring{getNewRequest()}{getNewRequest()}}
+{\footnotesize\ttfamily void get\+New\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Provides the next request to the elevator based on logic. The request is represented by the floor given as an int. 
+
+It first checks for requests on the elevators current floor.
+
+When there is no request on its current floor it loops through the rest of the database. If the elevator is on floor 1 or 2, it loops through the database from floor 4 and downwards. If the elevator is on floor 3 or 4, it loops through the database from floor 1 and upwards.
+
+The new request is added directly to the elevators current request. 
+
+Definition at line 50 of file request\+Manager.\+c.
+
+\mbox{\Hypertarget{requestManager_8h_a0ec8e7497def94c328a41dc9145822ef}\label{requestManager_8h_a0ec8e7497def94c328a41dc9145822ef}} 
+\index{requestManager.h@{requestManager.h}!initRequestManager@{initRequestManager}}
+\index{initRequestManager@{initRequestManager}!requestManager.h@{requestManager.h}}
+\doxysubsubsection{\texorpdfstring{initRequestManager()}{initRequestManager()}}
+{\footnotesize\ttfamily void init\+Request\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the request\+Manager. 
+
+Sets the matrix elements and number of requests to zero. 
+
+Definition at line 3 of file request\+Manager.\+c.
+

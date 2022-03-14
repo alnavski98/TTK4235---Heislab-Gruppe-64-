@@ -1,0 +1,11 @@
+<map id="source/elevator.h" name="source/elevator.h">
+<area shape="rect" id="node1" title="A module containing high level elevator functionality." alt="" coords="213,5,348,32"/>
+<area shape="rect" id="node2" href="$elevator_8c_source.html" title=" " alt="" coords="5,80,140,107"/>
+<area shape="rect" id="node3" href="$utilities_8h.html" title="A utilities module defining useful functions for cleaner and more readable code." alt="" coords="165,80,295,107"/>
+<area shape="rect" id="node4" href="$stateMachine_8h.html" title="A module containing the finite state machine." alt="" coords="248,155,417,181"/>
+<area shape="rect" id="node8" href="$requestManager_8h.html" title="A module defining the request manager." alt="" coords="370,80,557,107"/>
+<area shape="rect" id="node7" href="$utilities_8c_source.html" title=" " alt="" coords="95,155,224,181"/>
+<area shape="rect" id="node5" href="$main_8c_source.html" title=" " alt="" coords="193,229,307,256"/>
+<area shape="rect" id="node6" href="$stateMachine_8c_source.html" title=" " alt="" coords="331,229,499,256"/>
+<area shape="rect" id="node9" href="$requestManager_8c_source.html" title=" " alt="" coords="442,155,629,181"/>
+</map>
